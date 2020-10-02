@@ -1,45 +1,45 @@
-# A10:2017 Insufficient Logging and Monitoring
+# A10:2017 Nedostatečné logování a monitorování
 
-| Threat agents/Attack vectors | Security Weakness           | Impacts               |
+| Původci hrozby/Vektor útoku | Bezpečnostní slabina           | Dopady               |
 | -- | -- | -- |
-| Access Lvl : Exploitability 2 | Prevalence 3 : Detectability 1 | Technical 2 : Business |
-| Exploitation of insufficient logging and monitoring is the bedrock of nearly every major incident. Attackers rely on the lack of monitoring and timely response to achieve their goals without being detected. | This issue is included in the Top 10 based on an [industry survey](https://owasp.blogspot.com/2017/08/owasp-top-10-2017-project-update.html). One strategy for determining if you have sufficient monitoring is to examine the logs following penetration testing. The testers' actions should be recorded sufficiently to understand what damages they may have inflicted. | Most successful attacks start with vulnerability probing. Allowing such probes to continue can raise the likelihood of successful exploit to nearly 100%. In 2016, identifying a breach took an [average of 191 days](https://www-01.ibm.com/common/ssi/cgi-bin/ssialias?htmlfid=SEL03130WWEN&) – plenty of time for damage to be inflicted. |
+| Aplikačně specifické : Zneužitelnost 2 | Rozšíření 3 : Zjistitelnost 1 | Technické 2 : Obchodní |
+| Nedostatečné logování a monitorování je základem téměř každé závažné události. Útočníci se spoléhají na nedostatečné monitorování a zanedbanou včasnou reakci při dosahování svých cílů, aniž by byli odhaleni. | Toto číslo je zahrnuto v Top 10 na základě [průzkumu odvětví](https://owasp.blogspot.com/2017/08/owasp-top-10-2017-project-update.html). Jednou ze strategií pro určení, zda máte dostatečné monitorování, je prozkoumání logů po penetračním testování. Činnosti testerů by měly být dostatečně zaznamenány, aby bylo zřejmé, jaké škody mohou být způsobeny. | Nejúspěšnější útoky začínají zkoumáním zranitelnosti. Umožnění pokračování těchto sond může zvýšit pravděpodobnost úspěšného zneužití na téměř 100 %. V roce 2016 trvalo zjištění narušení zabezpečení [průměrně 191 dní](https://www-01.ibm.com/common/ssi/cgi-bin/ssialias?htmlfid=SEL03130WWEN&) – spousta času na způsobení škody. |
 
-## Is the Application Vulnerable?
+## Je aplikace zranitelná?
 
-Insufficient logging, detection, monitoring and active response occurs any time:
+K nedostatečnému logování, detekci, monitorování a aktivní odezvě dochází kdykoli když:
 
-* Auditable events, such as logins, failed logins, and high-value transactions are not logged.
-* Warnings and errors generate no, inadequate, or unclear log messages.
-* Logs of applications and APIs are not monitored for suspicious activity.
-* Logs are only stored locally.
-* Appropriate alerting thresholds and response escalation processes are not in place or effective.
-* Penetration testing and scans by [DAST](https://www.owasp.org/index.php/Category:Vulnerability_Scanning_Tools) tools (such as [OWASP ZAP](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project)) do not trigger alerts.
-* The application is unable to detect, escalate, or alert for active attacks in real time or near real time.
+* Nejsou zaznamenávány auditovatelné události, jako jsou přihlášení, neúspěšná přihlášení a důležité transakce.
+* Varování a chyby generují neadekvátní nebo nejasné zprávy v logu nebo nejsou logovány vůbec.
+* Protokoly aplikací a API nejsou sledovány kvůli podezřelé aktivitě.
+* Protokoly se ukládají pouze lokálně.
+* Nejsou nastaveny vhodné prahové hodnoty a procesy eskalace odezvy nejsou zavedeny, nebo jsou neúčinné.
+* Penetrační testování a skenování nástroji [DAST](https://www.owasp.org/index.php/Category:Vulnerability_Scanning_Tools) (například [OWASP ZAP](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project)) nespouští upozornění.
+* Aplikace není schopna detekovat nebo upozorňovat na aktivní útoky v reálném čase nebo s mírným spožděním a případně předávat k dodatečným konktrolám.
 
-You are vulnerable to information leakage if you make logging and alerting events visible to a user or an attacker (see A3:2017-Sensitive Information Exposure).
+Vůči úniku informací jste zranitelní, pokud nezabezpečíte logy a upozornění před uživateli nebo útočníky (viz A3: Expozice citlivých informací 2017).
 
-## How To Prevent
+## Jak se mohu bránit?
 
-As per the risk of the data stored or processed by the application:
+Podle rizika dat uložených nebo zpracovaných aplikací:
 
-* Ensure all login, access control failures, and server-side input validation failures can be logged with sufficient user context to identify suspicious or malicious accounts, and held for sufficient time to allow delayed forensic analysis.
-* Ensure that logs are generated in a format that can be easily consumed by a centralized log management solutions.
-* Ensure high-value transactions have an audit trail with integrity controls to prevent tampering or deletion, such as append-only database tables or similar.
-* Establish effective monitoring and alerting such that suspicious activities are detected and responded to in a timely fashion.
-* Establish or adopt an incident response and recovery plan, such as [NIST 800-61 rev 2](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final) or later.
+* Zajistěte, aby všechna přihlášení, selhání řízení přístupu a selhání ověření vstupu na straně serveru mohla být zaznamenávána s dostatečným uživatelským kontextem pro identifikaci podezřelých nebo škodlivých účtů a archivována po dostatečně dlouhou dobu, aby bylo možné provést zpětnou forenzní analýzu.
+* Zajistěte, aby se logy generovaly ve formátu, který lze snadno zpracovat centralizovanými řešeními pro správu logů.
+* Zajistěte, aby důležité transakce procházely integritním auditem, aby se zabránilo neoprávněné manipulaci nebo odstranění. Lze použít například databázové tabulky které umožňují pouze vložení nových záznamů.
+* Zaveďte účinné monitorování s výstrahami tak, aby byly podezřelé aktivity detekovány a existovala možnost na ně včas reagovat.
+* Vytvořte nebo převezměte plán reakce a obnovy po nastalém incidentu, například [NIST 800-61 rev 2](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final) nebo novější.
 
-There are commercial and open source application protection frameworks such as [OWASP AppSensor](https://www.owasp.org/index.php/OWASP_AppSensor_Project), web application firewalls such as [ModSecurity with the OWASP ModSecurity Core Rule Set](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project), and log correlation software with custom dashboards and alerting. 
+Existují komerční a open-source řešení pro ochranu aplikací, jako je [OWASP AppSensor](https://www.owasp.org/index.php/OWASP_AppSensor_Project), firewall webových aplikací, jako je [ModSecurity s OWASP ModSecurity Core Rule Set](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) a software pro kumulaci logů s možností vizualizace statistik a nastavením upozornění.
 
-## Example Attack Scenarios
+## Příklady útočných scénářů
 
-**Scenario #1**: An open source project forum software run by a small team was hacked using a flaw in its software. The attackers managed to wipe out the internal source code repository containing the next version, and all of the forum contents. Although source could be recovered, the lack of monitoring, logging or alerting led to a far worse breach. The forum software project is no longer active as a result of this issue.
+**Scénář č. 1**: Open-source software pro tvorbu veřejného fóra provozovaný malým týmem byl napaden pomocí chyby v tomto software. Útočníkům se podařilo vymazat interní úložiště zdrojového kódu obsahující další verzi a veškerý obsah fóra. Přestože bylo možné zdroj obnovit, nedostatečné monitorování, absence logů nebo upozornění vedly k mnohem horšímu konci. Projekt již není v důsledku tohoto problému aktivní.
 
-**Scenario #2**: An attacker uses scans for users using a common password. They can take over all accounts using this password. For all other users, this scan leaves only one false login behind. After some days, this may be repeated with a different password.
+**Scénář č. 2**: Útočník vyhledává uživatele používající běžné heslo. V průběhu času může útočník vyhledat všechny uživatele používající takové heslo. U všech ostatních uživatelů nastane během tohoto pokusu o odhalení hesla pouze jedno nezdařilé přihlášení. Po několika dnech může být útok opakován s jiným heslem.
 
-**Scenario #3**: A major US retailer reportedly had an internal malware analysis sandbox analyzing attachments. The sandbox software had detected potentially unwanted software, but no one responded to this detection. The sandbox had been producing warnings for some time before the breach was detected due to fraudulent card transactions by an external bank.
+**Scénář č. 3**: Přední americký prodejce měl údajně interní sandbox pro analýzu malwaru, který analyzoval přílohy. Softwarový sandbox detekoval potenciálně nežádoucí software, ale na tuto detekci nikdo nereagoval. Nástroj už nějakou dobu emitoval upozornění, než bylo prolomení ochrany zjištěno kvůli podvodným transakcím s kartami externí bankou.
 
-## References
+## Odkazy
 
 ### OWASP
 
@@ -48,7 +48,7 @@ There are commercial and open source application protection frameworks such as 
 * [OWASP Testing Guide: Testing for Detailed Error Code](https://www.owasp.org/index.php/Category:OWASP_Application_Security_Verification_Standard_Project#tab=Home)
 * [OWASP Cheat Sheet: Logging](https://www.owasp.org/index.php/Logging_Cheat_Sheet)
 
-### External
+### Externí
 
 * [CWE-223: Omission of Security-relevant Information](https://cwe.mitre.org/data/definitions/223.html)
 * [CWE-778: Insufficient Logging](https://cwe.mitre.org/data/definitions/778.html)
