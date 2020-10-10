@@ -7,40 +7,39 @@
 
 ## Je aplikace zranitelná?
 
-Applications and APIs will be vulnerable if they deserialize hostile or tampered objects supplied by an attacker.
+Aplikace a aplikační rozhraní (API) budou zranitelné, pokud deserializují pozměněné objekty podstrčené útočníkem.
 
-This can result in two primary types of attacks:
+To může mít za následek dva primární typy útoků:
 
-* Object and data structure related attacks where the attacker modifies application logic or achieves arbitrary remote code execution if there are classes available to the application that can change behavior during or after deserialization.
-* Typical data tampering attacks such as access-control-related attacks where existing data structures are used but the content is changed.
+* Útoky související s objektovou a datovou strukturou, kdy útočník upraví logiku aplikace nebo dosahne spuštění kódu na vzdáleném stroji (pokud má aplikace k dispozici třídy, které mohou změnit chování během deserializace nebo po ní).
+* Typické útoky manipulující daty, jako jsou útoky související s řízením přístupu, kde se používají existující datové struktury, ale mění se jejich obsah.
 
-Serialization may be used in applications for:
+Serializaci lze použít v aplikacích pro:
 
-* Remote- and inter-process communication (RPC/IPC) 
-* Wire protocols, web services, message brokers
-* Caching/Persistence
-* Databases, cache servers, file systems 
-* HTTP cookies, HTML form parameters, API authentication tokens 
+* Vzdálenou a meziprocesovou komunikaci (RPC / IPC)
+* Drátové protokoly, webové služby, zprostředkovatele zpráv
+* Mezipaměť / trvalé uložiště
+* Databáze, cache servery, souborové systémy
+* HTTP cookies, parametry formuláře HTML, autentizační tokeny API
 
 ## Jak se mohu bránit?
 
-The only safe architectural pattern is not to accept serialized objects from untrusted sources or to use serialization mediums that only permit primitive data types.
+Jediným bezpečným architektonickým vzorem je nepřijímat serializované objekty z nedůvěryhodných zdrojů nebo používat média pro serializaci, která povolují pouze primitivní datové typy.
 
-If that is not possible, consider one of more of the following:
+Pokud to není možné, zvažte jednu z následujících možností:
 
-* Implementing integrity checks such as digital signatures on any serialized objects to prevent hostile object creation or data tampering.
-* Enforcing strict type constraints during deserialization before object creation as the code typically expects a definable set of classes. Bypasses to this technique have been demonstrated, so reliance solely on this is not advisable.
-* Isolating and running code that deserializes in low privilege environments when possible.
-* Log deserialization exceptions and failures, such as where the incoming type is not the expected type, or the deserialization throws exceptions.
-* Restricting or monitoring incoming and outgoing network connectivity from containers or servers that deserialize.
-* Monitoring deserialization, alerting if a user deserializes constantly.
-
+* Implementace kontrol integrity, jako jsou digitální podpisy na všech serializovaných objektech, aby se zabránilo vytváření škodlivých objektů nebo nedovolené manipulaci s daty.
+* Zavedení přísné typové kontroly během deserializace před vytvořením objektu, protože kód obvykle očekává definovatelnou sadu tříd. Obcházení této techniky byly prokázány, takže spoléhání se pouze na ni se nedoporučuje.
+* Izolace a spuštění kódu, který deserializuje v prostředích s nízkými oprávněními, pokud je to možné.
+* Logování deserializačních výjimek a selhání. Například když příchozí typ není očekávaným typem, nebo deserializace vyvolá výjimku.
+* Omezení nebo monitorování příchozího a odchozího připojení k síti z kontejnerů nebo serverů, které deserializují.
+* Monitorování deserializace a upozornění, pokud uživatel deserializuje neustále.
 
 ## Příklady útočných scénářů
 
-**Scenario #1**: Aplikace napsaná v Reactu volá sadu Spring Boot mikroslužeb. Programátoři se snažili zajistit, aby jejich kód byl neměnný. Řešení, které zvolili, je serializace stavu uživatele a jeho předávání tam a zpět s každým požadavkem. Útočník si všimne podpisu objektu Java „R00“ a pomocí nástroje Java Serial Killer dosáhne vzdáleného spuštění kódu na aplikačním serveru.
+**Scénář č. 1**: Aplikace napsaná v Reactu volá sadu Spring Boot mikroslužeb. Programátoři se snažili zajistit, aby jejich kód byl neměnný. Řešení, které zvolili, je serializace stavu uživatele a jeho předávání tam a zpět s každým požadavkem. Útočník si všimne podpisu objektu Java „R00“ a pomocí nástroje Java Serial Killer dosáhne vzdáleného spuštění kódu na aplikačním serveru.
 
-**Scenario #2**: Fórum napsané v PHP používá serializaci objektů PHP k uložení „super“ cookie, které obsahuje ID uživatele, roli, hash hesla a další stav:
+**Scénář č. 2**: Fórum napsané v PHP používá serializaci objektů PHP k uložení „super“ cookie, které obsahuje ID uživatele, roli, hash hesla a další stav:
 
 `a:4:{i:0;i:132;i:1;s:7:"Bob";i:2;s:4:"user";i:3;s:32:"b6a8b3bea87fe0e05022f8f3c88bc960";}`
 
