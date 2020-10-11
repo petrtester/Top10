@@ -12,7 +12,7 @@ Aplikace patří k nejsložitějším systémům, které lidé pravidelně vytv�
 
 ## Žádost o návrhy (RFP) a uzavírání smluv
 
-* Vyjednejte požadavky s interními i externími vývojáři, včetně pokynů a bezpečnostních požadavků týkajících se vašeho bezpečnostního programu např.: Secure Development Lifecycle – SDLC, osvědčené postupy, atd.
+* Vyjednejte požadavky s interními i externími vývojáři, včetně pokynů a bezpečnostních požadavků týkajících se vašeho bezpečnostního programu např.: Secure Development Lifecycle – SDLC, osvědčené postupy atd.
 * Ohodnoťte splnění všech technických požadavků, včetně fáze plánování a návrhu.
 * Vyjednejte všechny technické požadavky, včetně designu, zabezpečení a dohod o úrovni služeb (Service Level Agreement – SLA).
 * Přijměte šablony a kontrolní seznamy, například [OWASP Secure Software Contract Annex](https://www.owasp.org/index.php/OWASP_Secure_Software_Contract_Annex). **Poznámka**: Příloha se vztahuje na smluvní právo USA, proto vzorovou přílohu před použitím konzultujte s kvalifikovaným právním poradenstvím.

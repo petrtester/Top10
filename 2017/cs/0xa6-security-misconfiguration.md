@@ -1,47 +1,47 @@
-# A6:2017 Security Misconfiguration
+# A6:2017 Chybná konfigurace zabezpečení
 
-| Threat agents/Attack vectors | Security Weakness           | Impacts               |
+| Původci hrozby/Vektor útoku | Bezpečnostní slabina           | Dopady               |
 | -- | -- | -- |
-| Access Lvl : Exploitability 3 | Prevalence 3 : Detectability 3 | Technical 2 : Business |
-| Attackers will often attempt to exploit unpatched flaws or access default accounts, unused pages, unprotected files and directories, etc to gain unauthorized access or knowledge of the system. | Security misconfiguration can happen at any level of an application stack, including the network services, platform, web server, application server, database, frameworks, custom code, and pre-installed virtual machines, containers, or storage. Automated scanners are useful for detecting misconfigurations, use of default accounts or configurations, unnecessary services, legacy options, etc. | Such flaws frequently give attackers unauthorized access to some system data or functionality. Occasionally, such flaws result in a complete system compromise. The business impact depends on the protection needs of the application and data. |
+| Aplikačně specifické : Zneužitelnost 3 | Rozšíření 3 : Zjistitelnost 3 | Technické 2 : Obchodní |
+| Útočníci se často pokusí zneužít neopravené chyby nebo získat přístup k výchozím účtům, nepoužívaným stránkám, nechráněným souborům a adresářům atd., aby získali neoprávněný přístup nebo znalosti systému. | K chybné konfiguraci zabezpečení může dojít na jakékoli úrovni, včetně síťových služeb, platformy, webového serveru, aplikačního serveru, databáze, rozhraní, vlastního kódu a předinstalovaných virtuálních strojů, kontejnerů nebo úložišť. Automatické skenery jsou užitečné pro zjišťování chybných konfigurací, použití výchozích účtů nebo konfigurací, zbytečných služeb, starších možností atd. | Takové chyby často útočníkům umožňují neoprávněný přístup k některým systémovým datům nebo funkcím. Občas takové chyby vedou k úplnému zkompromitování systému. Obchodní dopad závisí na potřebách ochrany aplikace a dat. |
 
-## Is the Application Vulnerable?
+## Je aplikace zranitelná?
 
-The application might be vulnerable if the application is:
+Aplikace může být zranitelná pokud:
 
-* Missing appropriate security hardening across any part of the application stack, or improperly configured permissions on cloud services.
-* Unnecessary features are enabled or installed (e.g. unnecessary ports, services, pages, accounts, or privileges).
-* Default accounts and their passwords still enabled and unchanged.
-* Error handling reveals stack traces or other overly informative error messages to users.
-* For upgraded systems, latest security features are disabled or not configured securely.
-* The security settings in the application servers, application frameworks (e.g. Struts, Spring, ASP.NET), libraries, databases, etc. not set to secure values.
-* The server does not send security headers or directives or they are not set to secure values.
-* The software is out of date or vulnerable (see **A9:2017-Using Components with Known Vulnerabilities**).
+* Chybí vhodné posílení zabezpečení v jakémkoliv SW vybavení, které aplikace používá, nebo jsou nesprávně nakonfigurovaná oprávnění pro cloudové služby.
+* Jsou povoleny nebo nainstalovány nepotřebné funkce (např.: nepotřebné porty, služby, stránky, účty nebo oprávnění).
+* Výchozí účty a jejich hesla jsou stále povolena a nezměněna.
+* Informace o zpracování chyb nebo jiné příliš informativní chybové zprávy jsou přístupné uživatelům.
+* U upgradovaných systémů jsou nejnovější funkce zabezpečení deaktivovány nebo nejsou bezpečně nakonfigurovány.
+* Nastavení zabezpečení v aplikačních serverech, aplikačních rámcích (např. Struts, Spring, ASP.NET), knihovnách, databázích atd. není nastaveno na bezpečné hodnoty.
+* Server neodesílá bezpečnostní hlavičky ani směrnice nebo není nastaven na bezpečné hodnoty.
+* Software je zastaralý nebo zranitelný (viz **A9: 2017 – Používání komponent se známými bezpečnostními chybami**).
 
-Without a concerted, repeatable application security configuration process, systems are at a higher risk.
+Bez koordinovaného a opakovatelného procesu konfigurace zabezpečení aplikace jsou systémy vystaveny vyššímu riziku.
 
-## How To Prevent
+## Jak se mohu bránit?
 
-Secure installation processes should be implemented, including:
+Měly by být implementovány procesy zabezpečené instalace, včetně následujících bodů:
 
-* A repeatable hardening process that makes it fast and easy to deploy another environment that is properly locked down. Development, QA, and production environments should all be configured identically, with different credentials used in each environment. This process should be automated to minimize the effort required to setup a new secure environment.
-* A minimal platform without any unnecessary features, components, documentation, and samples. Remove or do not install unused features and frameworks.
-* A task to review and update the configurations appropriate to all security notes, updates and patches as part of the patch management process (see **A9:2017-Using Components with Known Vulnerabilities**). In particular, review cloud storage permissions (e.g. S3 bucket permissions).
-* A segmented application architecture that provides effective, secure separation between components or tenants, with segmentation, containerization, or cloud security groups (ACLs).
-* Sending security directives to clients, e.g. [Security Headers](https://www.owasp.org/index.php/OWASP_Secure_Headers_Project).
-* An automated process to verify the effectiveness of the configurations and settings in all environments.
+* Opakovatelný proces, který umožňuje rychlé a snadné nasazení jiného prostředí, které je správně uzamčeno. Vývojová, testovací (QA) a produkční prostředí by měla být všechna nakonfigurována identicky s různými pověřeními používanými v každém prostředí. Tento proces by měl být automatizován, aby se minimalizovalo úsilí potřebné k nastavení nového zabezpečeného prostředí.
+* Minimalistická platforma bez zbytečných funkcí, komponent, dokumentace a vzorků. Odeberte nebo neinstalujte nepoužívané funkce a aplikační rámce.
+* Úkol zkontrolovat a aktualizovat konfigurace odpovídající všem bezpečnostním poučkám, aktualizacím a opravám jako součást procesu správy oprav (viz **A9: 2017 - Používání komponent se známými bezpečnostními chybami**). Zkontrolujte zejména oprávnění cloudového úložiště (např.: oprávnění S3 Buckets).
+* Segmentovaná aplikační architektura, která poskytuje efektivní a bezpečné oddělení komponent, a to se segmentací, kontejnerizací nebo cloudovými bezpečnostními skupinami (Access Control List – ACL).
+* Odesílání bezpečnostních směrnic klientské straně, např.: [bezpečnostní hlavičky](https://www.owasp.org/index.php/OWASP_Secure_Headers_Project).
+* Automatizovaný proces ověřující efektivitu konfigurací a nastavení ve všech prostředích.
 
-## Example Attack Scenarios
+## Příklady útočných scénářů
 
-**Scenario #1**: The application server comes with sample applications that are not removed from the production server. These sample applications have known security flaws attackers use to compromise the server. If one of these applications is the admin console, and default accounts weren't changed the attacker logs in with default passwords and takes over.
+**Scénář č. 1**: Aplikační server je dodáván s ukázkovými aplikacemi, které nejsou odebrány z produkčního serveru. Tyto ukázkové aplikace mají známé bezpečnostní chyby, které útočníci používají ke kompromitaci serveru. Pokud je jednou z těchto aplikací správcovská konzole a výchozí účty nebyly změněny, útočník se přihlásí pomocí výchozích hesel a převezme kontrolu.
 
-**Scenario #2**: Directory listing is not disabled on the server. An attacker discovers they can simply list directories. The attacker finds and downloads the compiled Java classes, which they decompile and reverse engineer to view the code. The attacker then finds a serious access control flaw in the application.
+**Scénář č. 2**: Zobrazení seznamu adresářů není na serveru zakázáno. Útočník zjistí, že může jednoduše vypsat dostupné adresáře. Útočník najde a stáhne zkompilované třídy Java, které dekompiluje a zobrazení si kód pomocí reverzního inženýrství. Útočník poté v aplikaci najde závažnou chybu v řízení přístupu.
 
-**Scenario #3**: The application server's configuration allows detailed error messages, e.g. stack traces, to be returned to users. This potentially exposes sensitive information or underlying flaws such as component versions that are known to be vulnerable.
+**Scénář č. 3**: Konfigurace aplikačního serveru umožňuje vypisování podrobných chybových zpráv uživatelům, např.: kroky zásobníku. To potenciálně odhaluje citlivé informace nebo podkladové chyby, jako jsou verze knihoven, u nichž je známa jejich zranitelnost.
 
-**Scenario #4**: A cloud service provider has default sharing permissions open to the Internet by other CSP users. This allows sensitive data stored within cloud storage to be accessed.
+**Scénář č. 4**: Poskytovatel cloudových služeb má výchozí oprávnění ke sdílení otevřená všem uživatelům internetu. To umožňuje přístup k citlivým datům uloženým v cloudovém úložišti.
 
-## References
+## Odkazy
 
 ### OWASP
 
@@ -51,7 +51,7 @@ Secure installation processes should be implemented, including:
 
 For additional requirements in this area, see the Application Security Verification Standard [V19 Configuration](https://www.owasp.org/index.php/ASVS_V19_Configuration).
 
-### External
+### Externí
 
 * [NIST Guide to General Server Hardening](https://csrc.nist.gov/publications/detail/sp/800-123/final)
 * [CWE-2: Environmental Security Flaws](https://cwe.mitre.org/data/definitions/2.html)
