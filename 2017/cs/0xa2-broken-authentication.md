@@ -1,45 +1,45 @@
-# A2:2017 Broken Authentication
+# A2:2017 Chybná autentizace
 
-| Threat agents/Attack vectors | Security Weakness           | Impacts               |
+| Původci hrozeb/Vektor útoku | Bezpečnostní slabina         | Dopady               |
 | -- | -- | -- |
-| Access Lvl : Exploitability 3 | Prevalence 2 : Detectability 2 | Technical 3 : Business |
-| Attackers have access to hundreds of millions of valid username and password combinations for credential stuffing, default administrative account lists, automated brute force, and dictionary attack tools. Session management attacks are well understood, particularly in relation to unexpired session tokens. | The prevalence of broken authentication is widespread due to the design and implementation of most identity and access controls. Session management is the bedrock of authentication and access controls, and is present in all stateful applications. Attackers can detect broken authentication using manual means and exploit them using automated tools with password lists and dictionary attacks. | Attackers have to gain access to only a few accounts, or just one admin account to compromise the system. Depending on the domain of the application, this may allow money laundering, social security fraud, and identity theft, or disclose legally protected highly sensitive information. |
+| Access Lvl : Zneužitelnost 3 | Prevalence 2 : Zjistitelnost 2 | Technické 3 : Business |
+| Útočníci mají přístup ke stovkám miliónů platných kombinací uživatelských jmen a hesel pro "credential stuffing", výchozí seznamy účtů pro správu, automatizovanou hrubou sílu a slovníkové útočné nástroje. Útoky na správu relací jsou dobře pochopeny, zejména ve vztahu k nevypršeným tokenům relací. | Prevalence chybné autentizace je rozšířená díky návrhu a implementaci většiny kontrol identity a přístupu. Správa relací je základem autentizace a řízení přístupu a je přítomna ve všech stavových aplikacíh. Útočníci mohou detekovat chybnou autentizaci s použitím ručních prostředků a zneužít je pomocí automatických nástrojů se seznamy hesel a slovníkovými útoky. | Útočníci musí získat přístup pouze k několika málo účtům, nebo pouze k jednomu účtu správce (admin účtu), aby narušili bezpečnost systému. V závislosti na doméně aplikace to může umožnit praní špinavých peněz, podvody se sociálním zabezpečením, krádež identity nebo zveřejnit legálně chráněné vysoce citlivé informace. |
 
-## Is the Application Vulnerable?
+## Je aplikace zranitelná?
 
-Confirmation of the user's identity, authentication, and session management are critical to protect against authentication-related attacks.
+Potvrzení identity uživatele, autentizace a správa relace jsou zásadní pro ochranu před útoky, které souvisí s autentizací.
 
-There may be authentication weaknesses if the application:
+Mohou existovat slabiny autentizace, pokud aplikace:
 
-* Permits automated attacks such as [credential stuffing](https://www.owasp.org/index.php/Credential_stuffing), where the attacker has a list of valid usernames and passwords.
-* Permits brute force or other automated attacks.
-* Permits default, weak, or well-known passwords, such as "Password1" or "admin/admin“.
-* Uses weak or ineffective credential recovery and forgot-password processes, such as "knowledge-based answers", which cannot be made safe.
-* Uses plain text, encrypted, or weakly hashed passwords (see **A3:2017-Sensitive Data Exposure**).
-* Has missing or ineffective multi-factor authentication.
-* Exposes Session IDs in the URL (e.g., URL rewriting).
-* Does not rotate Session IDs after successful login.
-* Does not properly invalidate Session IDs. User sessions or authentication tokens (particularly single sign-on (SSO) tokens) aren't properly invalidated during logout or a period of inactivity.
+* Povoluje automatizované útoky, jako je "credential stuffing" [credential stuffing](https://www.owasp.org/index.php/Credential_stuffing), kde má útočník seznam platných uživatelských jmen a hesel.
+* Povoluje hrubou sílu nebo jiné automatizované útoky.
+* Povoluje výchozí, slabá nebo dobře známá hesla, např. "Heslo1" nebo "admin/admin".
+* Používá slabé nebo neúčinné procesy pro obnovení pověření nebo pro zapomenuté heslo, např. "odpovědi založené na znalostech", které nelze zajistit.
+* Používá prostý text, šifrovaná nebo slabě hashovaná hesla (see **A3:2017-Sensitive Data Exposure**).
+* Má chybějící nebo neúčinné vícefaktorové ověřování.
+* Odhaluje ID relací v URL (např. přepis URL).
+* Nemění ID relcí po úspěšném přihlášení.
+* Nesprávně zneplatňuje ID relace. Uživatelské relace nebo autentizační tokeny (zejména tokeny jednotného přihlášení (SSO)) nejsou během odhlašování nebo období nečinnosti správně zneplatněny.
 
-## How To Prevent
+## Jak tomu zabránit
 
-* Where possible, implement multi-factor authentication to prevent automated, credential stuffing, brute force, and stolen credential re-use attacks. 
-* Do not ship or deploy with any default credentials, particularly for admin users.
-* Implement weak-password checks, such as testing new or changed passwords against a list of the [top 10000 worst passwords](https://github.com/danielmiessler/SecLists/tree/master/Passwords).
-* Align password length, complexity and rotation policies with [NIST 800-63 B's guidelines in section 5.1.1 for Memorized Secrets](https://pages.nist.gov/800-63-3/sp800-63b.html#memsecret) or other modern, evidence based password policies.
-* Ensure registration, credential recovery, and API pathways are hardened against account enumeration attacks by using the same messages for all outcomes.
-* Limit or increasingly delay failed login attempts. Log all failures and alert administrators when credential stuffing, brute force, or other attacks are detected.
-* Use a server-side, secure, built-in session manager that generates a new random session ID with high entropy after login. Session IDs should not be in the URL, be securely stored and invalidated after logout, idle, and absolute timeouts.
+* Pokud je to možné, implementujte vícefaktorové ověřování, abyste zabránili automatizovaným útokům, "credential stuffing", hrubé síle a odcizení opětovného použití pověření. 
+* Neposílejte ani nenasazujte žádné výchozí přihlašovací údaje, zejména pro uživatele v roli admin/správce.
+* Implementuje kontroly slabých hesel, například testování nových nebo změněných hesel proti seznamu 10000 nejhorších hesel [top 10000 worst passwords](https://github.com/danielmiessler/SecLists/tree/master/Passwords).
+* Slaďte délku hesel, složitosti a frekvence změny hesel s [NIST 800-63 B's guidelines in section 5.1.1 for Memorized Secrets](https://pages.nist.gov/800-63-3/sp800-63b.html#memsecret) nebo jinými moderními zásadami hesel založenými na důkazech.
+* Zajistěte, aby registrace, obnovení pověření a cesty API obrněny proti útokům na výčet účtů s použitím stejných zpráv pro všechny výstupy.
+* Omezte nebo stále více odkládejte neúspěšné pokusy o přihlášení. Zaznamenávejte všechna selhání a upozorněte administrátory, když jsou detekovány údaje o "credential stuffing", hrubá síla či jiné útoky.
+* Využijte zabezpečeného integrovaného správce relací na straně serveru, který po přihlášení vygeneruje nové náhodné ID relace s vysokou entropií. ID relace by neměla být v adrese URL, měla by být bezpečně uložena a zneplatněna po odhlášení, nečinnosti a absolutních časových limitech.
 
-## Example Attack Scenarios
+## Příklady útočných scénářů
 
-Scenario #1: [Credential stuffing](https://www.owasp.org/index.php/Credential_stuffing), the use of [lists of known passwords](https://github.com/danielmiessler/SecLists), is a common attack. If an application does not implement automated threat or credential stuffing protections, the application can be used as a password oracle to determine if the credentials are valid.
+Scénář #1: [Credential stuffing](https://www.owasp.org/index.php/Credential_stuffing), použití [lists of known passwords](https://github.com/danielmiessler/SecLists), je běžným utékem. Pokud v aplikaci není implementována automatická ochrana před hrozbami nebo "credential stuffing", může být použita jako věštec hesla k určení, zda jsou pověření platná.
 
-**Scenario #2**: Most authentication attacks occur due to the continued use of passwords as a sole factor. Once considered best practices, password rotation and complexity requirements are viewed as encouraging users to use, and reuse, weak passwords. Organizations are recommended to stop these practices per NIST 800-63 and use multi-factor authentication.
+**Scénář #2**: K většině útoků na autentizaci dochází v důsledku dalšího používání hesel jako jediného faktoru.    !!!Once considered best practices, password rotation and complexity requirements are viewed as encouraging users to use, and reuse, weak passwords. Organizations are recommended to stop these practices per NIST 800-63 and use multi-factor authentication.!!!
 
-**Scenario #3**: Application session timeouts aren't set properly. A user uses a public computer to access an application. Instead of selecting “logout” the user simply closes the browser tab and walks away. An attacker uses the same browser an hour later, and the user is still authenticated.
+**Scenario #3**: Časové limity relací aplikace nejsou správně nastaveny. Uživatel používá pro přístup k aplikaci veřejný počítač, Místo výběru "odhlášení" uživatel jednoduše zavře kartu prohlížeče a odejte. Útočník o hodinu později použije stejný prohlížeč a uživatel zústává stále autentizovaný.
 
-## References
+## Odkazy
 
 ### OWASP
 
@@ -54,8 +54,8 @@ Scenario #1: [Credential stuffing](https://www.owasp.org/index.php/Credential_st
 * [OWASP Cheat Sheet: Session Management](https://www.owasp.org/index.php/Session_Management_Cheat_Sheet)
 * [OWASP Automated Threats Handbook](https://www.owasp.org/index.php/OWASP_Automated_Threats_to_Web_Applications)
 
-### External
+### Externí
 
-* [NIST 800-63b: 5.1.1 Memorized Secrets](https://pages.nist.gov/800-63-3/sp800-63b.html#memsecret) - for thorough, modern, evidence-based advice on authentication. 
+* [NIST 800-63b: 5.1.1 Memorized Secrets](https://pages.nist.gov/800-63-3/sp800-63b.html#memsecret) - pro důkladné, moderní, na důkazech založené rady ohledně autentizace.
 * [CWE-287: Improper Authentication](https://cwe.mitre.org/data/definitions/287.html)
 * [CWE-384: Session Fixation](https://cwe.mitre.org/data/definitions/384.html)
