@@ -1,47 +1,47 @@
-# +A: What's next for Application Managers
+# +A: Aplikační manažeři, co dál?
 
-## Manage the Full Application Lifecycle
+## Spravujte celý životní cyklus aplikace
 
-Applications belong to the most complex systems humans regularly create and maintain. IT management for an application should be performed by IT specialists who are responsible for the overall IT lifecycle of an application. We suggest establishing the role of application manager as technical counterpart to the application owner. The application manager is in charge of the whole application lifecycle from the IT perspective, from collecting the requirements until the process of retiring systems, which is often overlooked. 
+Aplikace patří k nejsložitějším systémům, které lidé pravidelně vytvářejí a udržují. Správa aplikace by měla být prováděna IT specialisty, kteří jsou zodpovědní za její celkový životní cyklus. Navrhujeme zavedení role správce aplikací jako technického protějšku vlastníka aplikace. Správce aplikací má na starosti celý životní cyklus aplikace z pohledu IT, od shromažďování požadavků až po proces archivace systémů, který je často přehlížen.
 
-## Requirements and Resource Management
+## Požadavky a správa zdrojů
 
-* Collect and negotiate the business requirements for an application with the business, including the protection requirements with regard to confidentiality, authenticity, integrity and availability of all data assets, and the expected business logic.
-* Compile the technical requirements including functional and nonfunctional security requirements.
-* Plan and negotiate the budget that covers all aspects of design, build, testing and operation, including security activities.
+* Shromažďujte a vyjednávejte obchodní požadavky na aplikaci s obchodím oddělením, včetně požadavků na ochranu s ohledem na důvěrnost, autenticitu, integritu a dostupnost všech datových aktiv a očekávanou obchodní logiku.
+* Sestavte technické požadavky včetně funkčních a nefunkčních bezpečnostních požadavků.
+* Naplánujte a vyjednejte rozpočet, který pokrývá všechny aspekty návrhu, sestavení, testování a provozu, včetně činností spjatých se zaručením bezpečnosti.
 
-## Request for Proposals (RFP) and Contracting
+## Žádost o návrhy (RFP) a uzavírání smluv
 
-* Negotiate the requirements with internal or external developers, including guidelines and security requirements with respect to your security program, e.g. SDLC, best practices.
-* Rate the fulfillment of all technical requirements, including a planning and design phase.
-* Negotiate all technical requirements, including design, security, and service level agreements (SLA).
-* Adopt templates and checklists, such as [OWASP Secure Software Contract Annex](https://www.owasp.org/index.php/OWASP_Secure_Software_Contract_Annex). **Note**: The annex is for US contract law, so please consult qualified legal advice before using the sample annex.
+* Vyjednejte požadavky s interními i externími vývojáři, včetně pokynů a bezpečnostních požadavků týkajících se vašeho bezpečnostního programu např.: Secure Development Lifecycle – SDLC, osvědčené postupy atd.
+* Ohodnoťte splnění všech technických požadavků, včetně fáze plánování a návrhu.
+* Vyjednejte všechny technické požadavky, včetně designu, zabezpečení a dohod o úrovni služeb (Service Level Agreement – SLA).
+* Přijměte šablony a kontrolní seznamy, například [OWASP Secure Software Contract Annex](https://www.owasp.org/index.php/OWASP_Secure_Software_Contract_Annex). **Poznámka**: Příloha se vztahuje na smluvní právo USA, proto vzorovou přílohu před použitím konzultujte s kvalifikovaným právním poradenstvím.
 
-## Planning and Design
+## Plánování a design
 
-* Negotiate planning and design with the developers and internal shareholders, e.g. security specialists.
-* Define the security architecture, controls, and countermeasures appropriate to the protection needs and the expected threat level. This should be supported by security specialists.
-* Ensure that the application owner accepts remaining risks or provides additional resources.
-* In each sprint, ensure security stories are created that include constraints added for non-functional requirements.
+* Vyjednávejte plánování a design s vývojáři a interními akcionáři, např.: bezpečnostnimi specialisty.
+* Definujte architekturu zabezpečení, ovládací prvky a protiopatření odpovídající potřebám ochrany a očekávané úrovni ohrožení. Vše uvedené by mělo být podporováno bezpečnostními specialisty.
+* Zajistěte, aby vlastník aplikace přijal zbývající rizika nebo poskytl další zdroje.
+* V každém sprintu zajistěte vytvoření příběhů spjatých se zabezpečením, které obsahují omezení přidaná pro nefunkční požadavky.
 
-## Deployment, Testing, and Rollout
+## Nasazení, testování a zavedení
 
-* Automate the secure deployment of the application, interfaces and all required components, including needed authorizations.
-* Test the technical functions and integration with the IT architecture and coordinate business tests.
-* Create "use" and "abuse" test cases from technical and business perspectives.
-* Manage security tests according to internal processes, the protection needs, and the assumed threat level by the application.
-* Put the application in operation and migrate from previously used applications if needed.
-* Finalize all documentation, including the CMDB and security architecture.
+* Automatizujte zabezpečené nasazení aplikace, rozhraní a všech požadovaných komponent, včetně potřebných oprávnění.
+* Vyzkoušejte technické funkce a integraci s IT architekturou a koordinujte obchodní testy.
+* Vytvářejte testovací případy „použití“ a „zneužití“ z technického a obchodního hlediska.
+* Spravujte bezpečnostní testy podle interních procesů, potřeb ochrany a předpokládané úrovně ohrožení aplikací.
+* Uveďte aplikaci do provozu a v případě potřeby proveďte migraci z dříve používaných aplikací.
+* Dokončete veškerou dokumentaci, včetně CMDB a bezpečnostní architektury.
 
-## Operations and Change Management
+## Provoz a řízení změn
 
-* Operations must include guidelines for the security management of the application (e.g. patch management).
-* Raise the security awareness of users and manage conflicts about usability vs. security.
-* Plan and manage changes, e.g. migrate to new versions of the application or other components like OS, middleware, and libraries.
-* Update all documentation, including in the change management data base (CMDB) and the security architecture, controls, and countermeasures, including any runbooks or project documentation.
+* Provoz musí zahrnovat pokyny pro správu zabezpečení aplikace (např.: správu oprav).
+* Zvýšte povědomí o zabezpečení uživatelů a vyřešte konflikty ohledně použitelnosti vs. bezpečnosti.
+* Plánujte a spravujte změny, např.: migrujte na nové verze aplikace nebo jiné komponenty, jako je OS, middleware a knihovny.
+* Aktualizujte veškerou dokumentaci, včetně CMDB a bezpečnostní architektury, ovládacích prvků a protiopatření, včetně definic rutinních postupů nebo projektové dokumentace.
 
-## Retiring Systems
+## Archivace systémů
 
-* Any required data should be archived. All other data should be securely wiped.
-* Securely retire the application, including deleting unused accounts and roles and permissions.
-* Set your application's state to retired in the CMDB.
+* Veškerá požadovaná data by měla být archivována. Všechna ostatní data by měla být bezpečně vymazána.
+* Bezpečně odstraňte aplikaci, včetně odstranění nepoužívaných účtů, rolí a oprávnění.
+* Nastavte stav aplikace na vyřazený v CMDB.
