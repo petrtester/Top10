@@ -1,45 +1,45 @@
-# A3:2017 Sensitive Data Exposure
+# A3:2017 Expozice citlivých dat
 
-| Threat agents/Attack vectors | Security Weakness | Impacts |
+| Původci hrozeb/Vektor útoku | Bezpečnostní slabina | Dopady |
 | -- | -- | -- |
-| Access Lvl : Exploitability 2 | Prevalence 3 : Detectability 2 | Technical 3 : Business |
-| Rather than directly attacking crypto, attackers steal keys, execute man-in-the-middle attacks, or steal clear text data off the server, while in transit, or from the user’s client, e.g. browser. A manual attack is generally required. Previously retrieved password databases could be brute forced by Graphics Processing Units (GPUs). | Over the last few years, this has been the most common impactful attack. The most common flaw is simply not encrypting sensitive data. When crypto is employed, weak key generation and management, and weak algorithm, protocol and cipher usage is common, particularly for weak password hashing storage techniques. For data in transit, server side weaknesses are mainly easy to detect, but hard for data at rest. | Failure frequently compromises all data that should have been protected. Typically, this information includes sensitive personal information (PII) data such as health records, credentials, personal data, and credit cards, which often require protection as defined by laws or regulations such as the EU GDPR or local privacy laws. |
+| Access Lvl : Zneužitelnost 2 | Rozšíření 3 : Zjistitelnost 2 | Technické 3 : Business |
+| Místo přímého útoku na šifrovaná data útočníci kradou klíče, provádějí útoky typu man-in-the-middle, nebo kradou čistá textová data mimo server zatímco probíhá přenos, nebo od klienta uživatele, např. prohlížeče. Manuální útok je obecně vyžadován. Dříve načtené databáze hesel mohly být vynuceny jednotkami grafického zpracování (Graphics Processing Units (GPUs)).  | Za posledních několik let se jednalo o nejčastější významný útok. Nejběžnější chybou prostě je, že nejsou citlivá data šifrovaná. Častěji chybí šifrování důvěrných dat, a pokud je k dispozici, často používá nespolehlivé algoritmy, protokoloy, šifry, metody ukládání slabě hashovaných hesel nebo metody pro vytváření a správu klíčů. Též je snadné najít slabiny na straně serveru v případě přenášených dat, zatímco je to těžší v případě dat nepřenášených.| Chyba často ohrožuje data, který by měla být chráněna. Tyto informace typicky zahrnují citlivá osobní data, jako jsou zdravotní záznamy, pověření, osobní údaje, kreditní karty, které často vyžadují ochranu definovanou podle zákonů nebo předpisů, jako je EU GDPR nebo místní zákony o ochraně osobních údajů. |
 
-## Is the Application Vulnerable?
+## Je aplikace zranitelná?
 
-The first thing is to determine the protection needs of data in transit and at rest. For example, passwords, credit card numbers, health records, personal information and business secrets require extra protection, particularly if that data falls under privacy laws, e.g. EU's General Data Protection Regulation (GDPR), or regulations, e.g. financial data protection such as PCI Data Security Standard (PCI DSS). For all such data:
+První věcí je určit potřeby ochrany dat, ať jsou či nejsou přenášena. Například hesla, čísla kreditních karet, zdravotní záznamy, osobní údaje a obchodní tajemství vyžadují zvláštní ochranu, zejména pokud tyto údaje spadají pod zákony o ochraně osobních údajů, např. General Data Protection Regulation (GDPR), nebo předpisy, např. finanční ochrana dat jako je PCI Data Security Standard (PCI DSS). Pro všechna taková data:
 
-* Is any data transmitted in clear text? This concerns protocols such as HTTP, SMTP, and FTP. External internet traffic is especially dangerous. Verify all internal traffic e.g. between load balancers, web servers, or back-end systems.
-* Are any old or weak cryptographic algorithms used either by default or in older code? 
-* Are default crypto keys in use, weak crypto keys generated or re-used, or is proper key management or rotation missing?
-* Is encryption not enforced, e.g. are any user agent (browser) security directives or headers missing?
-* Does the user agent (e.g. app, mail client) not verify if the received server certificate is valid?
+* Jsou některá data přenášena jako prostý text? To se týká protokolů, jako jsou HTTP, SMTP a FTP. Obzvláště nebezpečný je externí internetový provoz. Ověřte veškerý interní provoz, např. mezi nástroji pro vyrovnávání zatížení, webovými servery nebo systémy back-end.
+* Používají se zastaralé nebo slabé kryptografické algoritmy buď ve výchozím nastavení, nebo ve starším kódu?
+* Jsou používány výchozí šifrovací klíče, jsou generovány nebo znovu použity slabé šifrovací klíče, nebo chybí dostatečná správa nebo rotace klíčů?
+* Není šifrování vynuceno, např. chybí nějaké bezpečnostní směrnice nebo záhlaví uživatelského agenta (prohlížeče)?
+* Neověřuje uživatelský agent (např. aplikace, poštovní klient), zda je přijatý certifikát serveru platný?
 
-See ASVS [Crypto (V7)](https://www.owasp.org/index.php/ASVS_V7_Cryptography), [Data Protection (V9)](https://www.owasp.org/index.php/ASVS_V9_Data_Protection) and [SSL/TLS (V10)](https://www.owasp.org/index.php/ASVS_V10_Communications).
+Navštivte ASVS [Crypto (V7)](https://www.owasp.org/index.php/ASVS_V7_Cryptography), [Data Protection (V9)](https://www.owasp.org/index.php/ASVS_V9_Data_Protection) and [SSL/TLS (V10)](https://www.owasp.org/index.php/ASVS_V10_Communications).
 
-## How To Prevent
+## Jak tomu zabránit
 
-Do the following, at a minimum, and consult the references:
+Proveďte přinejmenším následující a prostudujte si odkazy:
 
-* Classify data processed, stored or transmitted by an application. Identify which data is sensitive according to privacy laws, regulatory requirements, or business needs.
-* Apply controls as per the classification.
-* Don't store sensitive data unnecessarily. Discard it as soon as possible or use PCI DSS compliant tokenization or even truncation. Data that is not retained cannot be stolen.
-* Make sure to encrypt all sensitive data at rest.
-* Ensure up-to-date and strong standard algorithms, protocols, and keys are in place; use proper key management.
-* Encrypt all data in transit with secure protocols such as TLS with perfect forward secrecy (PFS) ciphers, cipher prioritization by the server, and secure parameters. Enforce encryption using directives like HTTP Strict Transport Security (HSTS).
-* Disable caching for response that contain sensitive data.
-* Store passwords using strong adaptive and salted hashing functions with a work factor (delay factor), such as [Argon2](https://www.cryptolux.org/index.php/Argon2), [scrypt](https://wikipedia.org/wiki/Scrypt), [bcrypt](https://wikipedia.org/wiki/Bcrypt) or [PBKDF2](https://wikipedia.org/wiki/PBKDF2).
-* Verify independently the effectiveness of configuration and settings.
+* Klasifikujte zpracovaná data, uložená nebo přenášená aplikací. Identifikujte citlivá data podle zákonů o ochraně soukromí, regulačních požadavků nebo obchodních potřeb.
+* Použijte ovládací prvky podle klasifikace.
+* Neukládejte zbytečně citlivá data. Zničte je co nejdříve, nebo použijte tokenizaci vyhovující PCI DSS nebo použijte zkrácení. Data, která nejsou uchovávána, nemohou být odcizena.
+* Zajistěte zašifrování všech citlivých dat, která jsou v klidu. (AT REST)
+* Zajistěte, aby byly k dispozivi aktuální a silné standardní algoritmy, protokoly a klíče; používejte správnou správu klíčů.
+* Šifrujte všechna přenášená data pomocí zabezpečených protokolů, jako je TLS, s šiframi Perfect Forward Secrecy (PFS), prioritou šifry serverem a zabezpečenými parametry. Vynuťte šifrování pomoví směrnic, jako je HTTP Strict Transport Security (HSTS).
+* Zakažte kešování stránek, které obsahují citlivá data.
+* Ukládejte hesla pomocí silných adaptivních a hashovacích funkcí s pracovním faktorem (faktor zpoždění), například [Argon2](https://www.cryptolux.org/index.php/Argon2), [scrypt](https://wikipedia.org/wiki/Scrypt), [bcrypt](https://wikipedia.org/wiki/Bcrypt) or [PBKDF2](https://wikipedia.org/wiki/PBKDF2).
+* Nezávisle ověřujte efektivnost konfigurace a nastavení.
 
-## Example Attack Scenarios
+## Příklady útočných scénářů
 
-**Scenario #1**: An application encrypts credit card numbers in a database using automatic database encryption. However, this data is automatically decrypted when retrieved, allowing an SQL injection flaw to retrieve credit card numbers in clear text. 
+**Scénář #1**: Aplikace, která šifruje čísla kreditních karet v databázi, používá automatické šifrování databáze. Tato data se však při načtení automaticky dešifrují, což umožňuje chybě SQL injection načíst čísla kreditních karet ve dormátu prostého textu.
 
-**Scenario #2**: A site doesn't use or enforce TLS for all pages or supports weak encryption. An attacker monitors network traffic  (e.g. at an insecure wireless network), downgrades connections from HTTPS to HTTP, intercepts requests, and steals the user's session cookie. The attacker then replays this cookie and hijacks the user's (authenticated) session, accessing or modifying the user's private data. Instead of the above they could alter all transported data, e.g. the recipient of a money transfer.
+**Scénář #2**: Webové stránky nepoužívají nebo nevynucují TLS pro všechny stránky nebo podporují slaboé šifrování. Útočník monitoruje provoz v síti (např. jako otevřené bezdrátové sítě), degraduje připojení z HTTPS na HTTP, zachycuje požadavky a získává soubory cookie relace uživatele. Útočník potom znovu přehraje tento soubor cookie a unese uživatelkou (autentizovanou) relaci, přistupuje nebo upravuje soukromá data uživatele. Místo výše zmiňovaného mohli změnit všechna přenášená data, např. příjemce převodu peněz.
 
-**Scenario #3**: The password database uses unsalted or simple hashes to store everyone's passwords. A file upload flaw allows an attacker to retrieve the password database. All the unsalted hashes can be exposed with a rainbow table of pre-calculated hashes. Hashes generated by simple or fast hash functions may be cracked by GPUs, even if they were salted.
+**Scénář #3**: Databáze hesel používá pro ukládání všech hesel nesolené nebo jednoduché hashe. Chyba při nahrávání souboru umožňuje útočníkovi získat databázi hesel. Všechny nesolené  hashe mohou být odkryty pomocí tzv. duhové tabulky předpočítaných hashů. Hashe generované jednoduchými nebo rychlými hashovacími funkcemi mohou být prolomeny GPU, ikdyž byly solené.
 
-## References
+## Odkazy
 
 * [OWASP Proactive Controls: Protect Data](https://www.owasp.org/index.php/OWASP_Proactive_Controls#7:_Protect_Data)
 * [OWASP Application Security Verification Standard]((https://www.owasp.org/index.php/Category:OWASP_Application_Security_Verification_Standard_Project)): [V7](https://www.owasp.org/index.php/ASVS_V7_Cryptography), [9](https://www.owasp.org/index.php/ASVS_V9_Data_Protection), [10](https://www.owasp.org/index.php/ASVS_V10_Communications)
@@ -49,7 +49,7 @@ Do the following, at a minimum, and consult the references:
 * [OWASP Security Headers Project](https://www.owasp.org/index.php/OWASP_Secure_Headers_Project); [Cheat Sheet: HSTS](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet)
 * [OWASP Testing Guide: Testing for weak cryptography](https://www.owasp.org/index.php/Testing_for_weak_Cryptography)
 
-### External
+### Externí
 
 * [CWE-220: Exposure of sens. information through data queries](https://cwe.mitre.org/data/definitions/220.html)
 * [CWE-310: Cryptographic Issues](https://cwe.mitre.org/data/definitions/310.html); [CWE-311: Missing Encryption](https://cwe.mitre.org/data/definitions/311.html)
