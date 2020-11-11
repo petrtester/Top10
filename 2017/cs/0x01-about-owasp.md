@@ -1,38 +1,38 @@
-# O About OWASP
+# OWASP
 
-## About OWASP
+## OWASP
 
-The Open Web Application Security Project (OWASP) is an open community dedicated to enabling organizations to develop, purchase, and maintain applications and APIs that can be trusted.
+Open Web Application Security Project (OWASP) je otevřená komunita podporující organizace ve vývoji, nákupu a údržbě důvěryhodných aplikací a rozhraní API. 
 
-At OWASP, you'll find free and open:
+V OWASP najdete bezplatné a otevřené:
 
-* Application security tools and standards.
-* Complete books on application security testing, secure code development, and secure code review.
-* Presentations and [videos](https://www.youtube.com/user/OWASPGLOBAL).
-* [Cheat sheets](https://www.owasp.org/index.php/OWASP_Cheat_Sheet_Series) on many common topics.
-* Standard security controls and libraries.
-* [Local chapters worldwide](https://www.owasp.org/index.php/OWASP_Chapter).
-* Cutting edge research.
-* Extensive [conferences worldwide](https://www.owasp.org/index.php/Category:OWASP_AppSec_Conference).
-* [Mailing lists](https://lists.owasp.org/mailman/listinfo).
+* Nástroje a standardy pro zabezpečení aplikací.
+* Kompletní knihy o testování zabezpečení aplikací, vývoji zabezpečeného kódu a bezpečnostní kontrole kódu.
+* Prezentace a [videa] (https://www.youtube.com/user/OWASPGLOBAL).
+* [Taháky] (https://www.owasp.org/index.php/OWASP_Cheat_Sheet_Series) s mnoha tématy.
+* Standardy bezpečnostních kontrol a knihoven.
+* [Místní pobočky po celém světě] (https://www.owasp.org/index.php/OWASP_Chapter).
+* Špičkový výzkum.
+* Rozsáhlé [konference po celém světě] (https://www.owasp.org/index.php/Category:OWASP_AppSec_Conference).
+* [E-mailové konference] (https://lists.owasp.org/mailman/listinfo).
 
-Learn more at: [https://www.owasp.org](https://www.owasp.org).
+Více se dozvíte na: [https://www.owasp.org](https://www.owasp.org).
 
-All OWASP tools, documents, videos, presentations, and chapters are free and open to anyone interested in improving application security.
+Všechny nástroje, dokumenty, videa, prezentace a pobočky OWASP jsou zdarma a otevřené každému, kdo má zájem o zlepšení zabezpečení aplikací.
 
-We advocate approaching application security as a people, process, and technology problem, because the most effective approaches to application security require improvements in these areas.
+Zastáváme pojetí zabezpečení aplikací jakožto problému lidského, procesního a technologického, protože nejúčinnější přístupy k zabezpečení aplikací vyžadují zlepšování v těchto oblastech.
 
-OWASP is a new kind of organization. Our freedom from commercial pressures allows us to provide unbiased, practical, and cost-effective information about application security.
+OWASP je nový typ organizace. Naše svoboda od komerčních tlaků nám umožňuje poskytovat nestranné, praktické, nákladově efektivní informace o zabezpečení aplikací. 
 
-OWASP is not affiliated with any technology company, although we support the informed use of commercial security technology. OWASP produces many types of materials in a collaborative, transparent, and open way.
+OWASP není spojen s žádnou technologickou společností, ačkoli podporujeme informované používání komerční bezpečnostní technologie. OWASP produkuje mnoho druhů materiálů na základě spolupráce, transparentně a otevřeně.
 
-The OWASP Foundation is the non-profit entity that ensures the project's long-term success. Almost everyone associated with OWASP is a volunteer, including the OWASP board, chapter leaders, project leaders, and project members. We support innovative security research with grants and infrastructure.
+Nadace OWASP je nezisková organizace, která zajišťuje dlouhodobou úspěšnost projektu. Téměř všichni, kdo jsou spojeni s OWASP, jsou dobrovolníky, včetně rady OWASP, vedoucích  poboček, projektových vedoucích a členů projektu. Podporujeme inovativní výzkum v oblasti bezpečnosti prostřednictvím grantů a infrastruktury.
 
-Come join us!
+Přidej se k nám!
 
-## Copyright and License
+## Autorská práva a licence
 
 ![license](images/license.png)
 
-Copyright © 2003-2017 The OWASP Foundation. This document is released under the Creative Commons Attribution Share-Alike 4.0 license. For any reuse or distribution, you must make it clear to others the license terms of this work.
+Copyright © 2003 – 2017 The OWASP Foundation. Tento dokument je zveřejněn na základě licence Creative Commons Attribution ShareAlike 4.0. Pro všechna opětovná využití nebo distribuci je nutné uvést licenční podmínky tohoto díla.
 
