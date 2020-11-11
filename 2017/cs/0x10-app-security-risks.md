@@ -1,37 +1,42 @@
-# Risk - Application Security Risks
+# Riziko - Bezpečnostní rizika aplikací
 
-## What Are Application Security Risks?
+## Co jsou bezpečnostní rizika aplikací?
 
-Attackers can potentially use many different paths through your application to do harm to your business or organization. Each of these paths represents a risk that may, or may not, be serious enough to warrant attention.
+Útočníci teoreticky mohou použít mnoho různých cest skrz vaši aplikaci, aby poškodili váš podnik nebo organizaci. Každá z takových cest představuje riziko, které může, či nemusí být natolik závažné, aby stálo za pozornost.
 
 ![App Security Risks](images/0x10-risk-1.png)
 
-Sometimes these paths are trivial to find and exploit, and sometimes they are extremely difficult. Similarly, the harm that is caused may be of no consequence, or it may put you out of business. To determine the risk to your organization, you can evaluate the likelihood associated with each threat agent, attack vector, and security weakness and combine it with an estimate of the technical and business impact to your organization. Together, these factors determine your overall risk.
+Nalezení a využití těchto cest je někdy jednoduché a někdy velmi obtížné. Obdobně způsobená škoda může být bez následků, ale může i zablokovat vaše podnikání. Chcete-li určit riziko pro svou organizaci, můžete posoudit pravděpodobnost, která je spojena s každým původcem hrozeb, vektorem útoku a bezpečnostní slabinou, a zkombinovat ji s odhadem technického a obchodního dopadu na svou organizaci. Celkové riziko určují tyto faktory společně.
 
-## What's My Risk
+## Jaké riziko plyne pro mě?
 
-The [OWASP Top 10](https://www.owasp.org/index.php/Top10) focuses on identifying the most serious web application security risks for a broad array of organizations. For each of these risks, we provide generic information about likelihood and technical impact using the following simple ratings scheme, which is based on the OWASP Risk Rating Methodology.  
+[OWASP Top 10](https://www.owasp.org/index.php/Top10) se zaměřuje na identifikaci nejzávažnějších bezpečnostních rizik webových aplikací pro širokou škálu organizací. Ke každému z těchto rizik poskytujeme obecné informace o pravděpodobnosti a technickém dopadu pomocí následujícího jednoduchého schématu hodnocení, které je založeno na OWASP Risk Rating Methodology.  
 
-| Threat Agents | Exploitability | Weakness Prevalence | Weakness Detectability | Technical Impacts | Business Impacts |
+| Aktéři hrozby | Využitelnost | Rozšíření slabiny | Zjistitelnost slabiny | Technické dopady | Obchodní dopady |
 | -- | -- | -- | -- | -- | -- |
-| Appli-   | Easy 3 | Widespread 3 | Easy 3 | Severe 3 | Business     |
-| cation   | Average 2 | Common 2 | Average 2 | Moderate 2 | Specific |
-| Specific | Difficult 1 | Uncommon 1 | Difficult 1 | Minor 1 |       |
+| Specifi | Snadný 3 | Rozsáhlé 3 | Snadné 3 | Vážné 3 | Business     |
+| cké pro | Průměrný 2 | Běžné 2 | Průměrná 2 | Střední 2 | Specifi |
+| aplikaci| Obtížný 1 | Vzácné 1 | Obtížná 1 | Malé 1 |       |
 
-In this edition, we have updated the risk rating system to assist in calculating the likelihood and impact of any given risk. For more details, please see [Note About Risks](0xc0-note-about-risks.md). 
+V tomto vydání jsme aktualizovali systém hodnocení rizik, abychom pomohli vypočítat pravděpodobnost a dopad daného rizika. Další podrobnosti naleznete v části [Note About Risks](0xc0-note-about-risks.md). 
 
-Each organization is unique, and so are the threat actors for that organization, their goals, and the impact of any breach. If a public interest organization uses a content management system (CMS) for public information and a health system uses that same exact CMS for sensitive health records, the threat actors and business impacts can be very different for the same software. It is critical to understand the risk to your organization based on applicable threat agents and business impacts.
+Neexistují žádné identické organizace, stejně jako neexistují identičtí útočníci, jejich cíle a dopady útoků. Jestliže jedna organizace používá určitý systém řízení
+obsahu (CMS) pro publikování zpráv a systém zdravotní péče používá stejný systém pro ukládání lékařských dat, potom hrozby a rizika pro tyto organizace budou velmi odlišné. Je velmi důležité určit rizika pro vaši organizaci na základě hrozeb, které se na ni vztahují, a potenciálního dopadu útoků.
 
 Where possible, the names of the risks in the Top 10 are aligned with [Common Weakness Enumeration](https://cwe.mitre.org/) (CWE) weaknesses to promote generally accepted naming conventions and to reduce confusion.
 
-## References
+Pokud je to možné, jsou názvy rizik v Top 10 sladěny se slabými místy [Common Weakness Enumeration] (https://cwe.mitre.org/) (CWE), které podporují obecně přijímané konvence o pojmenovávání a snižují nejasnosti.
+
+Kde to je možné, jsou názvy rizik v Top 10 sladěny se zranitelnostmi uvedenými v seznamu [Common Weakness Enumeration] (https://cwe.mitre.org/) (CWE), jež podporuje obecně přijímané kovvence pojmenování a zabraňují tak nejasnostem.
+
+## Odkazy
 
 ### OWASP
 
 * [OWASP Risk Rating Methodology](https://www.owasp.org/index.php/OWASP_Risk_Rating_Methodology)
 * [Article on Threat/Risk Modeling](https://www.owasp.org/index.php/Threat_Risk_Modeling)
 
-### External
+### Externí
 
 * [ISO 31000: Risk Management Std](https://www.iso.org/iso-31000-risk-management.html)
 * [ISO 27001: ISMS](https://www.iso.org/isoiec-27001-information-security.html)
