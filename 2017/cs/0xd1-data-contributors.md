@@ -1,8 +1,8 @@
-# Acknowledgements
+# Poděkování
 
-## Acknowledgements to Data Contributors
+## Poděkování organizacím, které poskytly údaje
 
-We'd like to thank the many organizations that contributed their vulnerability data to support the 2017 update:
+Rádi bychom poděkovali mnoha organizacím, které přispěly svými údaji o zranitelnosti k podpoře aktualizace z roku 2017:
 
 * ANCAP
 * Aspect Security
@@ -47,12 +47,12 @@ We'd like to thank the many organizations that contributed their vulnerability d
 * Vantage Point
 * Veracode
 * Web.com
-w
-For the first time, all the data contributed to a Top 10 release, and the full list of contributors is [publicly available](https://github.com/OWASP/Top10/tree/master/2017/datacall/submissions).
 
-## Acknowledgements to Individual Contributors
+Poprvé jsou [veřejně dostupná](https://github.com/OWASP/Top10/tree/master/2017/datacall/submissions) všechna data poskytnutá k vydání Top 10, stejně jako úplný seznam zdrojů.
 
-We’d like to thank the individual contributors who spent many hours collectively contributing to the Top 10 in GitHub.
+## Poděkování jednotlivým účastníkům
+
+Chtěli bychom poděkovat jednotlivým účastníkům projektu, kteří strávili mnoho hodin společným přispíváním do Top 10 v GitHubu.
 
 * ak47gen
 * alonergan
@@ -131,6 +131,6 @@ We’d like to thank the individual contributors who spent many hours collective
 * vdbaan
 * yohgaki
 
-And everyone else who provided feedback via Twitter, email, and other means.
+A všem ostatním, kteří poskytli zpětnou vazbu prostřednictvím Twitteru, e-mailu a dalších prostředků.
 
-We would be remiss not to mention that Dirk Wetter, Jim Manico, and Osama Elnaggar have provided extensive assistance. Also, Chris Frohoff and Gabriel Lawrence provided invaluable support in the writing of the new A8:2017-Insecure Deserialization risk.
+A samozřejmě bychom chtěli ocenit Dirka Wettera, Jima Manica a Usáma Elnaggara za jejich obrovský přínos. Neocenitelná pomoc při vytváření nové kategorie A8:2017-Insecure Deserialization poskytli Chris Frohoff a Gabriel Lawrence.
