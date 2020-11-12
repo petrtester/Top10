@@ -1,12 +1,13 @@
-# +Dat Methodology and Data
+# +MD Metodika a data
 
-At the OWASP Project Summit, active participants and community members decided on a vulnerability view, with up to two (2) forward looking vulnerability classes, with ordering defined partially by quantitative data, and partially by qualitative surveys.
+Na summitu projektu OWASP aktivní účastníci a členové komunity se rozhodli představit dvě slibné třídy zranitelnosti, pořadím definovaným částečně kvantitativními daty a částečně kvalitativními průzkumy.
+
  
-## Industry Ranked Survey
+## Průzkum podle odvětví
 
-For the survey, we collected the vulnerability categories that had been previously identified as being “on the cusp” or were mentioned in feedback to 2017 RC1 on the Top 10 mailing list. We put them into a ranked survey and asked respondents to rank the top four vulnerabilities that they felt should be included in the OWASP Top 10 - 2017. The survey was open from Aug 2 – Sep 18, 2017. 516 responses were collected and the vulnerabilities were ranked.
+Pro tuto studii jsme vybrali kategorie zranitelností, které byly dříve označovány jako "na vrcholu" nebo byly zmíněny ve zpětné vazbě pro 2017 RC1 v Top 10 e-mailové konferenci. Hodnotili jsme tato data a požádali respondenty, aby identifikovali čtyři top zranitelnosti, které by by měly být zahrnuty do OWASP top 10 - 2017. Průzkum byl proveden od 2. srpna do 18. září 2017. Bylo shromážděno 516 odpovědí, podle nichž byla stanovena kritičnost zranitelností.
 
-| Rank | Survey Vulnerability Categories | Score |
+| Kritičnost | Kategorie zranitelnosti podle průzkumu | Skóre |
 | -- | -- | -- |
 | 1 | Exposure of Private Information ('Privacy Violation') [CWE-359] | 748 |
 | 2 | Cryptographic Failures [CWE-310/311/312/326/327]| 584 |
