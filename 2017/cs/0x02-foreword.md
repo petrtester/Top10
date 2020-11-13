@@ -13,8 +13,6 @@ Také jsme sestavili seznamy doporučených kroků pro různé skupiny uživatel
 
 Z dlouhodobého hlediska doporučujeme všem vývojářksým týmům aorganizacím, abyvytvořily program pro zabezpečení aplikací, který je kompatibilní s jejich kulturou a technologiemi. Tyto programy mohou být prezentovány v všech možných formách či množství. Využijte stávající silné stránky vaši organizace pro měření a zdokonalování s použitím Software Assurance Maturity Model.
 
-We hope that the OWASP Top 10 is useful to your application security efforts. Please don't hesitate to contact OWASP with your questions, comments, and ideas at our GitHub project repository:
-
 Doufáme, že OWASP Top 10 pomáhá vašemu úsilí v zabezpečení aplikací. Neváhejte kontaktovat OWASP se svými dotazy, komentáři a nápady v našem repozitáři projektu GitHub:
 
 * [https://github.com/OWASP/Top10/issues](https://github.com/OWASP/Top10/issues)
@@ -23,9 +21,8 @@ Projekt a překlady OWASP Top 10 najdete zde:
 
 * [https://www.owasp.org/index.php/top10](https://www.owasp.org/index.php/top10)
 
-Lastly, we wish to thank the founding leadership of the OWASP Top 10 project, Dave Wichers and Jeff Williams, for all their efforts, and believing in us to get this finished with the community's help. Thank you!
 
-Nakonec bychom rádi poděkovali zakládajícímu vedení projektu OWASP Top 10, Daveovi Wichersovi a Jeffu Williamsovi – za veškeré jejich úsilí a víru v nás, že to s pomocí komunity dokážeme. Děkuji!
+Nakonec bychom rádi poděkovali zakládajícímu vedení projektu OWASP Top 10, Daveovi Wichersovi a Jeffu Williamsovi – za veškeré jejich úsilí a víru v nás, že to s pomocí komunity dokážeme. Děkujeme!
 
 * Andrew van der Stock
 * Brian Glas
