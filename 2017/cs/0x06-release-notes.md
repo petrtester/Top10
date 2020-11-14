@@ -25,7 +25,7 @@ Požádali jsme komunitu, aby zvážila dvě slibné kategorie hrozeb. Po obdrž
 ## Sloučeny nebo v ústraní, ale nezapomenuty
 
 * **A4-Insecure Direct Object References** a **A7-Missing Function Level Access Control** spojeny do **A5:2017-Broken Access Control**.
-* **A8-Cross-Site Request Forgery (CSRF)** byl nalezen pouze u 5 % aplikací, protože většina aplikačních růmců má [orchranu před](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)).
+* **A8-Cross-Site Request Forgery (CSRF)** byl nalezen pouze u 5 % aplikací, protože většina aplikačních růmců má [orchranu před CSRF](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)).
 * **A10-Unvalidated Redirects and Forwards** i když bylo nalezeno asi u 8 % aplikací, byla tato kategorie nahrazena XXE.
 
 ![0x06-release-notes-1](images/0x06-release-notes-1.png)
