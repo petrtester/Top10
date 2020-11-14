@@ -23,8 +23,6 @@ V tomto vydání jsme aktualizovali systém hodnocení rizik, abychom pomohli vy
 Neexistují žádné identické organizace, stejně jako neexistují identičtí útočníci, jejich cíle a dopady útoků. Jestliže jedna organizace používá určitý systém řízení
 obsahu (CMS) pro publikování zpráv a systém zdravotní péče používá stejný systém pro ukládání lékařských dat, potom hrozby a rizika pro tyto organizace budou velmi odlišné. Je velmi důležité určit rizika pro vaši organizaci na základě hrozeb, které se na ni vztahují, a potenciálního dopadu útoků.
 
-Where possible, the names of the risks in the Top 10 are aligned with [Common Weakness Enumeration](https://cwe.mitre.org/) (CWE) weaknesses to promote generally accepted naming conventions and to reduce confusion.
-
 Pokud je to možné, jsou názvy rizik v Top 10 sladěny se slabými místy [Common Weakness Enumeration] (https://cwe.mitre.org/) (CWE), které podporují obecně přijímané konvence o pojmenovávání a snižují nejasnosti.
 
 Kde to je možné, jsou názvy rizik v Top 10 sladěny se zranitelnostmi uvedenými v seznamu [Common Weakness Enumeration] (https://cwe.mitre.org/) (CWE), jež podporuje obecně přijímané kovvence pojmenování a zabraňují tak nejasnostem.
