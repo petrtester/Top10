@@ -7,12 +7,11 @@ Poslední čtyři roky se toho změnilo hodně, proto OWASP Top 10 také potřeb
 V posledních letech se základní technologie a aplikační architektura hodně změnily:
 
 * Mikroslužby napsané v node.js a Spring Boot nahrazují tradiční monolitické aplikace. Mikroslužby přicházejí s vlastními bezpečnostními výzvami, jako je navázání důvěry mezi mikroslužbami, kontejnery, správou citlivých dat atd. Starý kód, u něhož se nikdy neočekávalo, že bude přístupný z internetu, je nyní umístěn za API nebo RESTful webovými službami, které budou využívat jednostránkové aplikace (Single Page Applications) (SPA) a mobilní aplikace. Architektonické předpoklady kódu, jako jsou trusted callers, již nejsou platné.
-* Jednostránkové aplikace napsané v JavaScriptových aplikačních rámcích (například Angular a React) umožňují vytváření vysoce modulární, multičunkcní rozhraní. Funkce na straně klienta, která je tradičně poskytována na straně serveru, přináší své vlastní bezpečnostní výzvy.
+* Jednostránkové aplikace napsané v JavaScriptových aplikačních rámcích (například Angular a React) umožňují vytváření vysoce modulární, multifunkční rozhraní. Funkce na straně klienta, která je tradičně poskytována na straně serveru, přináší své vlastní bezpečnostní výzvy.
 * JavaScript je v současné době hlavním jazykem webu s node.js běžícím na straně serveru a moderními webovými aplikačními rámci (například Bootstrap, Electron, Angular a React) běžícími na klientovi.
 
 ## Nové problémy zdůrazněné daty
 
-* **A4:2017-XML External Entities (XXE)** is a new category primarily supported by source code analysis security testing tools ([SAST](https://www.owasp.org/index.php/Source_Code_Analysis_Tools)) data sets.
 * **A4:2017-XML External Entities (XXE)** je nová kategorie, která byla nalezena hlavně prostřednictvím nástroje SAST (Source Code Analysis Security TestTools) ([SAST](https://www.owasp.org/index.php/Source_Code_Analysis_Tools)).
 
 ## Nové problémy zdůrazněné komunitou
