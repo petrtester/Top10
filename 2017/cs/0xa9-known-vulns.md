@@ -22,9 +22,9 @@ Je třeba zavést proces řízení oprav, který umožní:
 
 * Odstranit nepoužívané závislosti, nepotřebné funkce, komponenty, soubory a dokumentaci.
 * Průběžně inventarizovat verze komponent jak na straně klienta, tak na straně serveru (např. frameworky, knihovny) a jejich závislosti pomocí nástrojů, jakými jsou versions, DependencyCheck, retire.js atd.  
-* •	Průběžně sledujte zdroje o zranitelnostech komponent v CVE a NVD. K automatizaci procesu použijte Software Composition Analysis. Přihlaste se k odběru e-mailových upozornění na zranitelnosti související s komponentami, které používáte. 
-* Komponenty získávejte pouze z oficiálních zdrojů přes zabezpečené odkazy. Upřednostňujte podepsané balíčky, abyste snížili šanci získání upravenou škodlivou komponentu.
-* Dávejte pozor na knihovny a komponenty, které již nejsou podporovány nebo již nedostávají bezpečnostní aktualizace. Pokud oprava není možná, zkuste použít virtuální opravy k detekci nebo k zabránění zneužití známých chyb zabezpečení.
+* Průběžně sledovat zdroje o zranitelnostech komponent v CVE a NVD. K automatizaci procesu použijte Software Composition Analysis. Přihlaste se k odběru e-mailových upozornění na zranitelnosti související s komponentami, které používáte. 
+* Komponenty získávat pouze z oficiálních zdrojů přes zabezpečené odkazy. Upřednostňujte podepsané balíčky, abyste snížili šanci získání upravenou škodlivou komponentu.
+* Dávat pozor na knihovny a komponenty, které již nejsou podporovány nebo již nedostávají bezpečnostní aktualizace. Pokud oprava není možná, zkuste použít virtuální opravy k detekci nebo k zabránění zneužití známých chyb zabezpečení.
 
 Každá organizace by měla zajistit, aby aktualizace nebo změny konfigurace byly sledovány, upřednostňovány a aplikovány během celého životního cyklu aplikace nebo portfolia.
 
