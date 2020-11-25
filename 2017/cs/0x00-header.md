@@ -14,7 +14,7 @@ Požadované komentáře podle pokynů uvnitř
 
 |  | ![Creative Commons License Logo](images/front-cc.png) |
 | -- | -- |
-| https://owasp.org | Tato práce je vydána na základě licence. Creative Commons Attribution-ShareAlike 4.0 International License |
+| https://owasp.org | Tato práce je vydána na základě licence Creative Commons Attribution-ShareAlike 4.0 International License |
 
 
 
