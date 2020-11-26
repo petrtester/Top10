@@ -15,9 +15,9 @@ Hlavním cílem OWASP Top 10 je vzdělávat vývojáře, návrháře, architekty
 **Neustálá změna**. Tento Top 10 se bude i nadále měnit. Dokonce i beze změny jediného řádku v kódu vaší aplikace se můžete stát zranitelnými, protože se objevují nové slabiny
 a metody útoků se vylepšují. Pokud se chcete dozvědět více, na konci Top 10 si prosím přečtěte doporučení „Vývojáři, ověřovatelé, organizace, co dál“?
 
-**Myslete pozitivně**. Až skončíte s pronásledováním zranitelností a budete připraveni zaměřit se na vytvoření silné kontroly v zabezpečení aplikací, projekt [OWASP Proactive Controls] (https://www.owasp.org/index.php/OWASP_Proactive_Controls) poskytuje výchozí bod, který pomůže , který pomůže vývojářům vytvářet zabezpečení do svých aplikací a [OWASP Application Security Verification Standard (ASVS)] (https://www.owasp.org/index.php/ASVS), průvodce pro organizace a recenzenty aplikací, aby věděli, co mají ověřovat.
+**Myslete pozitivně**. Až skončíte s pronásledováním zranitelností a budete připraveni zaměřit se na vytvoření silné kontroly v zabezpečení aplikací, projekt [OWASP Proactive Controls] (https://www.owasp.org/index.php/OWASP_Proactive_Controls) poskytuje výchozí bod, který pomůže vývojářům vytvářet zabezpečení aplikací a [OWASP Application Security Verification Standard (ASVS)] (https://www.owasp.org/index.php/ASVS), průvodce pro organizace a kontrolory aplikací, aby věděli, co mají ověřovat.
 
-**Nástroje používejte moudře** Zranitelnosti mohou být dosti složité a mohou být zakopané hluboce v kódu. V mnoha případech jsou nákladově nejefektivnějším přístupem k vyhledávání a odstranění těchto slabých míst lidští experti vyzbrojení dobrými nástroji.
+**Nástroje používejte uvážlivě** Zranitelnosti mohou být dosti složité a mohou být zakopané hluboce v kódu. V mnoha případech jsou nákladově nejefektivnějším přístupem k vyhledávání a odstranění těchto slabých míst lidští experti vyzbrojení dobrými nástroji.
 
 **Rozvíjejte se ve všech směrech - doleva, doprava a všude**. Zaměřte se na to, aby bezpečnost byla nedílnou součástí vaší kultury během celé organizace vývoje. Více se dozvíte v [OWASP Software Assurance Maturity Model (SAMM)] (https://www.owasp.org/index.php/OWASP_SAMM_Project).
 
@@ -25,10 +25,10 @@ a metody útoků se vylepšují. Pokud se chcete dozvědět více, na konci Top 
 
 Jsme vděční organizacím, které poskytly informace o chybách zabezpečení pro vydání aktualizace z roku 2017. Obdrželi jsme více než 40 odpovědí na výzvu k poskytnutí údajů. Poprvé všechna data shromážděná pro vydání Top 10, stejně tak úplný seznam účastníků projektu jsou veřejně dostupné. Věříme, že se jedná o jednu z největších a nejrozmanitějších sbírek dat o zranitelnosti, jaké kdy byly veřejně shromážděny.
 
-Protože účastníků projektu je mnohem více než je dispozici zde prostoru, vytvořili jsme speciální stránku s údaji o jejich příspění. Upřímně děkujeme organizacím za to, že jsou ochotni být v první linii a veřejně s komunitou sdílet údaje o zranitelnostech. Doufáme, že tato praxe bude pokračovat a stále více organizací se na tom bude podílet; snad se to stane jednou z klíčových fází implementace bezpečnosti založené na důkazech. Vytvoření OWASP Top 10 bylo by bylo nemožné bez účasti všech těchto úžasných lidí.
+Protože účastníků projektu je mnohem více než prostoru, který je zde k dispozici, vytvořili jsme speciální stránku s údaji o jejich příspění. Upřímně děkujeme organizacím za to, že jsou ochotni být v první linii a veřejně s komunitou sdílet údaje o zranitelnostech. Doufáme, že tato praxe bude pokračovat a stále více organizací se na tom bude podílet; snad se to stane jednou z klíčových fází implementace bezpečnosti založené na důkazech. Vytvoření OWASP Top 10 bylo by bylo nemožné bez účasti všech těchto úžasných lidí.
 
 Velké poděkování více než 500 jednotlivcům, kteří strávili čas tím, že to dokončili výzkum. Názory těchto lidí pomohly určit dvě nové kategorie pro Top 10. Vážíme si všech komentářů, připomínek a kritiky. Víme, že váš čas je cenný a chceme vám vyjádřit svou vděčnost.
 
 Chceme poděkovat účastníkům, kteří přispěli svými konstruktivními komentáři a časem stráveným nad revizí nového čísla Top 10. Pokud to bylo možné, uvedli jsme je na stránce „Poděkování“.
 
-A konečně chceme předem poděkovat všem překladatelům, kteří toto číslo Top 10 přeloží do v různých jazyků - to přispívá k tomu, k lepší dostupnosti OWASP Top 10 pro celou planetu.
+A konečně chceme předem poděkovat všem překladatelům, kteří toto číslo Top 10 přeloží do v různých jazyků - to přispívá k lepší dostupnosti OWASP Top 10 pro celou planetu.
