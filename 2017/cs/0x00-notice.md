@@ -2,15 +2,15 @@
 
 ## Důležité oznámení
 
-### Prosba o okomentování
+### Prosba o připomínky
 
-Toto je textová verze OWASP Top 10 – přestože je slouží překladatelům a zájemcům o textovou verzi, nejedná se o oficiální vydání, kterým je verze v PowerPoint / PDF.
+Toto je textová verze OWASP Top 10 – přestože slouží překladatelům a zájemcům o textovou verzi, nejedná se o oficiální vydání, kterým je verze v PowerPoint / PDF.
 
-V této fázi žádáme
+V této fázi potřebujeme:
 
 * Překlady - některé týmy na nich již pracují, ale pokud nám chcete pomoci, kontaktujte nás
 
-Důrazně žádáme, aby jakékoli opravy nebo problémy byly zaznamenány na GitHubu::
+Důrazně žádáme, aby jakékoli opravy nebo problémy byly zaznamenány na GitHubu:
 
 * [https://github.com/OWASP/Top10/issues](https://github.com/OWASP/Top10/issues)
 
