@@ -1,6 +1,6 @@
 # I Úvod
 
-## Vítejte u OWASP Top 10 - 2017
+## Vítejte - OWASP Top 10 - 2017
 
 Tato hlavní aktualizace přidává několik nových čísel, včetně dvou problémů vybraných komunitou - A8: 2017 - nezabezpečená deserializace a A10: 2017 - nedostatečné protokolování a monitorování. Oproti předchozím verzím OWASP Top 10 jeou zde dva klíčové rozlišovací prvky - zpětná vazba komunity a značné množství dat shromážděná od desítek organizací, možná největší množství dat, které kdy bylo nashromážděno při přípravě aplikačně bezpečnostního standardu. To nám dává jistotu, že nový OWASP Top 10 ze zaměřuje na nejžhavější bezpečnostní rizika aplikací, kterým v současnosti organizace čelí.
 
@@ -8,7 +8,7 @@ OWASP Top 10 pro rok 2017 je založen primárně na více než 40 souborech dat 
 
 Hlavním cílem OWASP Top 10 je vzdělávat vývojáře, návrháře, architekty, manažery a organizace o důsledcích nejvýznamnějších slabin v zabezpečení webových aplikací. Top 10 poskytuje základní techniky pro ochranu proti těmto vysoce problémovým oblastem – a také navádí, kudy jít dál.
 
-## Plán pro budoucí činnosti
+## Plán budoucích činnosti
 
 **Nezastavujte se na 10**. Existují stovky problémů, které by mohly ovlivnit celkové zabezpečení webové aplikace, jak je popsáno v [Příručce pro vývojáře OWASP] (https://www.owasp.org/index.php/OWASP_Guide_Project) a v [OWASP Cheat Sheet Series] ( https://www.owasp.org/index.php/Category:Cheatsheets). Jedná se o základní čtení pro každého, kdo vyvíjí webové aplikace a API. Pokyny, jak efektivně najít zranitelná místa ve webových aplikacích a API, jsou uvedeny v [OWASP Testing Guide] (https://www.owasp.org/index.php/OWASP_Testing_Project).
 
