@@ -25,7 +25,7 @@ obsahu (CMS) pro publikování zpráv a systém zdravotní péče používá ste
 
 Pokud je to možné, jsou názvy rizik v Top 10 sladěny se slabými místy [Common Weakness Enumeration] (https://cwe.mitre.org/) (CWE), které podporují obecně přijímané konvence o pojmenovávání a snižují nejasnosti.
 
-Kde to je možné, jsou názvy rizik v Top 10 sladěny se zranitelnostmi uvedenými v seznamu [Common Weakness Enumeration] (https://cwe.mitre.org/) (CWE), jež podporuje obecně přijímané kovvence pojmenování a zabraňují tak nejasnostem.
+Kde to je možné, jsou názvy rizik v Top 10 sladěny se zranitelnostmi uvedenými v seznamu [Common Weakness Enumeration] (https://cwe.mitre.org/) (CWE), jež podporuje obecně přijímané kovence pojmenování a zabraňují tak nejasnostem.
 
 ## Odkazy
 
